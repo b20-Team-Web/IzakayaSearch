@@ -1,0 +1,106 @@
+/* top.html.erb の css設定 */
+h1 {
+    text-align: center;
+}
+
+.top_area {
+    position: relative;
+}
+
+.top_area span {
+    position: absolute;
+    color: #ffee58;
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 60px;
+    top: 45%;
+    left: 14%;
+}
+
+.top_area img {
+    width: 100%;
+}
+
+.sub_title {
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 18px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.sub_title span {
+    margin-right: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #ffee58;
+}
+
+.item_box {
+    margin: 20px;
+    width: auto;
+    height: 200px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 2px 4px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.image_box {
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    width: auto;
+    border-radius: 10px;
+}
+
+.ranking_icon {
+    position: relative;
+    width: 23px;
+    height: 20px;
+    top: 35px;
+    left: 5px;
+}
+
+.item_link {
+    position: relative;
+    left: 10px;
+    top: 5px;
+}
+
+.walk_icon {
+    position: relative;
+    width: 16px;
+    top: 12px;
+    left: 35px;
+}
+
+.distance {
+    position: relative;
+    font-size: 12px;
+    top: 10px;
+    left: 30px;
+}
+
+.average_icon {
+    position: relative;
+    width: 16px;
+    top: 45px;
+    right: 110px;
+}
+
+.average {
+    position: relative;
+    font-size: 12px;
+    top: 40px;
+    right: 110px;
+}
+
+/* 先頭の2文字が消えちゃう謎 */
+.beer_price {
+    position: relative;
+    font-size: 30px;
+    color: crimson;
+    left: 190px;
+}

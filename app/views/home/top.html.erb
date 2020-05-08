@@ -1,0 +1,28 @@
+<h1>ビアサーチ</h1>
+<div class="top_area">
+    <%= image_tag("/assets/top_image.png") %>
+    <span><%= @beer_price %></span>
+</div>
+<div class="sub_title">
+    <span></span>
+    八王子駅周辺で最もビールが安いお店
+</div>
+<% @shop.each do |shop| %>
+<div class="item_box">
+    <div class="image_box">
+        <img src="<%= "/top_images/item_image/#{shop.image}" %>">
+    </div>
+    <div>
+        <% if @top3 < 4 then %>
+            <%= image_tag("/assets/icons/ranking#{@top3}.png", class: 'ranking_icon') %>
+            <% @top3 += 1 %>
+        <% end %>
+        <span class="item_link"><%= link_to("#{shop.name}","/show/#{shop.id}") %></span>
+    </div>
+    <%= image_tag("/assets/icons/walk.png", class: 'walk_icon') %>
+    <span class="distance"><%= shop.distance %></span>
+    <%= image_tag("/assets/icons/average.png", class: 'average_icon') %>
+    <span class="average"><%= "平均予算: #{shop.average} 円 〜" %></span>
+    <span class="beer_price"><%= "　　#{shop.beer_price} 円 〜" %></span>
+</div>
+<% end %>
