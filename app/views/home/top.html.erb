@@ -1,28 +1,40 @@
-<h1>ビアサーチ</h1>
 <div class="top_area">
     <%= image_tag("/assets/top_image.png") %>
     <span><%= @beer_price %></span>
 </div>
 <div class="sub_title">
-    <span></span>
-    八王子駅周辺で最もビールが安いお店
+    <span class="sub_title_text">八王子駅周辺で最もビールが安いお店</span>
 </div>
-<% @shop.each do |shop| %>
-<div class="item_box">
-    <div class="image_box">
-        <img src="<%= "/top_images/item_image/#{shop.image}" %>">
+<% array = ["gold","silver","brown"] %>
+<% 4.times do |i| %>
+    <div class="contentList">
+        <ul>
+            <li class="contentList_box">
+                <div class="contentList_image">
+                    <img src="/assets/item_image/1.jpg">
+                </div>
+                <div class="contentList_inside">
+                    <div class="contentList_inside_icon"><!-- ランキング順位の部分 -->
+                        <i class="fas fa-crown <%= array[i] %>"></i>
+                    </div>
+                    <div>
+                        <div class="contentList_inside_column">
+                            <div class="contentList_inside_column__name">
+                                <%= link_to("店名","/show/1") %>
+                            </div>
+                            <div class="contentList_inside_column__distance">
+                                <i class="fas fa-walking"></i><span>距離</span>
+                            </div>
+                            <div class="contentList_inside_column__average">
+                                <i class="fas fa-utensils"></i><span>平均価格</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contentList_inside_price">
+                        <i>~300円</i>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
-    <div>
-        <% if @top3 < 4 then %>
-            <%= image_tag("/assets/icons/ranking#{@top3}.png", class: 'ranking_icon') %>
-            <% @top3 += 1 %>
-        <% end %>
-        <span class="item_link"><%= link_to("#{shop.name}","/show/#{shop.id}") %></span>
-    </div>
-    <%= image_tag("/assets/icons/walk.png", class: 'walk_icon') %>
-    <span class="distance"><%= shop.distance %></span>
-    <%= image_tag("/assets/icons/average.png", class: 'average_icon') %>
-    <span class="average"><%= "平均予算: #{shop.average} 円 〜" %></span>
-    <span class="beer_price"><%= "　　#{shop.beer_price} 円 〜" %></span>
-</div>
 <% end %>

@@ -11,9 +11,19 @@
     <link rel="stylesheet" href="app/assets/stylesheets/reset.css">
     <link rel="stylesheet" href="app/assets/stylesheets/sp.css" media="screen and (max-width: 500px)">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   <body>
+    <div class="wrap">
+     <div class="logo_area">
+      <header>
+        <%= image_tag("/assets/logo.png") %>
+      </header>
+    </div>
+    <hr>
     <%= yield %>
+    </div>
   </body>
 </html>
