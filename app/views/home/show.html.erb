@@ -16,28 +16,33 @@
     <ul>
         <li class="show_contentList_box">
             <div class="show_contentList_box_beer">
-                <div class="show_contentList_box_beer_text">ビール最安</div>
-                <div class="show_contentList_box_beer_price">~300円</div>
+                <div class="show_contentList_box_beer_text">
+                    <b>ビール最安</b>
+                </div>
+                <div class="show_contentList_box_beer_price">
+                    <b class="show_contentList_box_beer_price_small">¥</b><b>300~</b>
+                </div>
             </div>
             <div class="show_contentList_box_info">
                 <div>
-                    <i class="fas fa-walking"></i><i class="show_contentList_box_info_dis">距離</i>
+                    <i class="fas fa-walking walk_fa_size"></i><b class="show_contentList_box_info_dis">ＪＲ 八王子駅 徒歩2分</b>
                 </div>
                 <div>
-                    <i class="fas fa-utensils"></i><i class="show_contentList_box_info_ave">平均価格</i>
+                    <i class="fas fa-utensils ave_fa_size"></i><b class="show_contentList_box_info_ave">¥300円~</b>
                 </div>
-            </div>
-            <div>
-                <i>お店説明</i>
             </div>
             <div class="show_contentList_box_items">
                 <div class="show_contentList_box_items_map">
-                    <i>map icon</i>
+                    <%= image_tag("/assets/icons/google_map_icon.svg") %>
+                    <span class="material-icons">chevron_right</span>
                 </div>
                 <div class="show_contentList_box_items_grnb">
-                    <i>ぐるなび icon</i>
+                    <%= image_tag("/assets/icons/gurunabi.jpg") %><span class="material-icons">chevron_right</span>
                 </div>
             </div>
         </li>
     </ul>
+</div>
+<div class="ad_space">
+    <div>広告スペース</div>
 </div>

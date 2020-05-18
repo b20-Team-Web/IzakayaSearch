@@ -1,6 +1,7 @@
 /* top.html.erb の css設定 */
 hr {
     margin: 0px;
+    border-top: 1px solid black;
 }
 
 ul {
@@ -25,21 +26,58 @@ ul {
 }
 
 .top_area {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-image: url("/assets/top_image.png");
+    height: 268px;
+    color: wheat;
 }
 
-.top_area span {
-    position: absolute;
+.top_area_box {
+    margin-top: 60px;
+    margin-left: 18px;
+}
+
+.top_area_box_head {
+    display: flex;
+    align-items: flex-end;
+    color: white;
+}
+
+.top_area_box_head_big {
+    font-size: 30px;
+}
+
+.top_area_box_head_small {
+    font-size: 24px;
+}
+
+.top_area_box_ex {
+    font-size: 14px;
+    color: white;
+}
+
+.top_area_box_middle {
+    display: flex;
+    margin-top: 28px;
+    align-items: flex-end;
     color: #ffee58;
-    text-align: center;
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 60px;
-    top: 45%;
-    left: 14%;
 }
 
-.top_area img {
-    width: 100%;
+.top_area_box_middle_big {
+    font-size: 68px;
+    font-weight: 900;
+}
+
+.top_area_box_middle_small {
+    font-size: 20px;
+}
+
+.top_area_box_bottom {
+    font-size: 12px;
+    margin-left: 50px;
+    margin-top: 10px;
+    color: white;
 }
 
 .sub_title {
@@ -50,7 +88,7 @@ ul {
     line-height: 35px;
 }
 
-.sub_title_text {
+.sub_title b{
     margin-left: 10px;
 }
 
@@ -62,10 +100,12 @@ ul {
 .contentList_box {
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 90vw;
+    width: 390px;
+    height: 257px;
     border: 1px solid;
     border-color: gray;
     border-radius: 10px;
+    box-shadow: 0px 2px 3px grey;
 }
 
 .contentList_image img {
@@ -73,12 +113,14 @@ ul {
     border-color: gray;
     box-sizing: border-box;
     border-radius: 10px;
-    width: 90vw;
+    width: 390px;
+    height: 160px;
 }
 
 .contentList_inside {
     display: flex;
     flex-direction: row;
+    margin-top: 10px;
 }
 
 .contentList_inside_icon {
@@ -89,71 +131,88 @@ ul {
     align-items: center;
 }
 
-.gold {
-    color: gold;
-}
-
-.silver {
-    color: silver;
-}
-
-.brown {
-    color: brown;
-}
-
 .contentList_inside_column {
     display: flex;
     flex-direction: column;
-    width: 170px;
+    width: 185px;
 }
 
 .contentList_inside_column div {
-    margin-top: 5px;
+    margin-top: 10px;
     margin-bottom: 5px;
 }
 
-.contentList_inside_column span {
+.contentList_inside_column b {
     margin-left: 5px;
 }
 
-.contentList_inside_column__name {
-    font-size: 20px;
+.contentList_inside_name {
+    display: block;
+    font-size: 18px;
+    width: 280px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contentList_inside_row {
+    display: flex;
 }
 
 .contentList_inside_column__distance {
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .contentList_inside_column__average {
-    font-size: 12px;
+    font-size: 11px;
 }
 
-.contentList_inside_price {
+.contentList_inside_column__average b {
+    margin-left: 5px;
+}
+
+.contentList_inside_column__average span {
+    font-size: 1.5em;
+}
+
+.contentList_inside_row_price {
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;
+    margin-top: 10px;
 }
 
-.contentList_inside_price i {
+.contentList_inside_row_price b {
     color: tomato;
-    font-size: 35px;
+    font-size: 28px;
 }
+
+.walk_fa_size {
+    font-size: 1.5em;
+}
+
+.ave_fa_size {
+    font-size: 1.2em;
+}
+
 
 
 /* show.html.erb css */
 
 .show_title {
-    position: relative;
-    left: 10px;
-    margin-top: 10px;
+    display: flex;
+    margin-left: 15px;
+    margin-top: 18px;
     margin-bottom: 10px;
+    font-size: 18px;
 }
 
 .show_hr {
     position: relative;
-    left: 10px;
-    width: 350px;
+    left: 15px;
+    width: 90%;
+    border-top: 1px solid gray;
 }
 
 .scroll_images {
@@ -166,10 +225,9 @@ ul {
 
 .scroll_images li {
     display: inline-block;
-
       /* 見た目調整 */
     height: 200px;
-    margin: 16px;
+    margin: 15px;
     font-size: 48px;
     background: rgba(255, 0, 0, 0.4);
 }
@@ -179,7 +237,7 @@ ul {
 }
 
 .show_contentList {
-    margin-top: 40px;
+    margin-top: 25px;
     display: flex;
     justify-content: center;
 }
@@ -196,21 +254,27 @@ ul {
     align-items: center; /* 縦方向中央揃え */
     -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
     justify-content: center; /* 横方向中央揃え */
+    letter-spacing: 6px;
 }
 
 .show_contentList_box_beer_text {
-    font-size: 30px;
+    font-size: 25px;
     margin-right: 30px;
 }
 
 .show_contentList_box_beer_price {
-    font-size: 50px;
-    color: tomato;
+    font-size: 48px;
+    color: red;
+    font-weight: 800;
+}
+
+.show_contentList_box_beer_price_small {
+    font-size: 0.8em;
 }
 
 .show_contentList_box_info {
     margin-top: 20px;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .show_contentList_box_info div {
@@ -240,8 +304,8 @@ ul {
     border: 1px solid;
     border-color: gray;
     border-radius: 10px;
-    height: 40px;
-    width: 150px;
+    width: 140px;
+    height: 35px;
     -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
     align-items: center; /* 縦方向中央揃え */
     -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
@@ -249,9 +313,37 @@ ul {
 }
 
 .show_contentList_box_items_map {
-    
+    margin-right: 20px;
+}
+
+.show_contentList_box_items_map img {
+    margin-left: 45px;
+}
+
+.show_contentList_box_items_map span {
+    margin-left: 30px;
 }
 
 .show_contentList_box_items_grnb {
+    margin-left: 20px;
+}
 
+.show_contentList_box_items_grnb img {
+    height: 28px;
+    margin-left: 45px;
+}
+
+.show_contentList_box_items_grnb span {
+    margin-left: 35px;
+}
+
+.ad_space {
+    display: flex;
+    -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+    align-items: center; /* 縦方向中央揃え */
+    -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+    justify-content: center; /* 横方向中央揃え */
+    height: 87px;
+    background-color: gray;
+    margin-top: 18px;
 }

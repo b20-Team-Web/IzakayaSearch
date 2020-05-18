@@ -1,12 +1,36 @@
 <div class="top_area">
-    <%= image_tag("/assets/top_image.png") %>
-    <span><%= @beer_price %></span>
+    <div class="top_area_box">
+        <div class="top_area_box_head">
+            <div class="top_area_box_head_big">
+                <b>八王子駅</b>
+            </div>
+            <div class="top_area_box_head_small">
+                <b>周辺</b>
+            </div>
+        </div>
+        <div class="top_area_box_ex">
+            <b>で安くビールがのめるお店</b>
+        </div>
+        <div class="top_area_box_middle">
+            <div class="top_area_box_middle_small">
+                <b>最安</b>
+            </div>
+            <div class="top_area_box_middle_big">
+                <span>390</span>
+            </div>
+            <div>
+                <b>円~</b>
+            </div>
+        </div>
+        <div class="top_area_box_bottom">
+            <b>八王子駅北口徒歩5分</b>
+        </div>
+    </div>
 </div>
 <div class="sub_title">
-    <span class="sub_title_text">八王子駅周辺で最もビールが安いお店</span>
+    <b>八王子駅周辺で最もビールが安いお店</b>
 </div>
-<% array = ["gold","silver","brown"] %>
-<% 4.times do |i| %>
+<% 3.times do |i| %>
     <div class="contentList">
         <ul>
             <li class="contentList_box">
@@ -15,23 +39,25 @@
                 </div>
                 <div class="contentList_inside">
                     <div class="contentList_inside_icon"><!-- ランキング順位の部分 -->
-                        <i class="fas fa-crown <%= array[i] %>"></i>
+                        <%= image_tag("/assets/icons/#{i + 1}") %>
                     </div>
                     <div>
-                        <div class="contentList_inside_column">
-                            <div class="contentList_inside_column__name">
-                                <%= link_to("店名","/show/1") %>
+                        <div class="contentList_inside_name">
+                            <%= link_to("個室居酒屋 淡路島へ渡れ 八王子店","/show/1") %>
+                        </div>
+                        <div class="contentList_inside_row">
+                            <div class="contentList_inside_column">
+                                <div class="contentList_inside_column__distance">
+                                    <i class="fas fa-walking walk_fa_size"></i><b>ＪＲ 八王子駅 徒歩2分</b>
+                                </div>
+                                <div class="contentList_inside_column__average">
+                                    <i class="fas fa-utensils ave_fa_size"></i><b>平均予算<span>3,500</span>円</b>
+                                </div>
                             </div>
-                            <div class="contentList_inside_column__distance">
-                                <i class="fas fa-walking"></i><span>距離</span>
-                            </div>
-                            <div class="contentList_inside_column__average">
-                                <i class="fas fa-utensils"></i><span>平均価格</span>
+                            <div class="contentList_inside_row_price">
+                                <b>¥300円~</b>
                             </div>
                         </div>
-                    </div>
-                    <div class="contentList_inside_price">
-                        <i>~300円</i>
                     </div>
                 </div>
             </li>
