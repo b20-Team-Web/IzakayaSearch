@@ -6,11 +6,17 @@ hr {
 
 ul {
     list-style: none;
+    width: 100%;
 }
 
 .wrap {
     overflow-x: hidden;
     font-family: 'Noto Sans', sans-serif;
+}
+
+.footer {
+    background-color: grey;
+    height: 50vw;
 }
 
 .logo_area {
@@ -81,11 +87,10 @@ ul {
 }
 
 .sub_title {
-    margin-top: 20px;
-    margin-left: 10px;
-    font-size: 18px;
+    margin: 20px 0 0 10px;
     border-left: 7px solid #ffee58;
     line-height: 35px;
+    font-size: 5vw;
 }
 
 .sub_title b{
@@ -94,18 +99,20 @@ ul {
 
 .contentList {
     display: flex;
-    justify-content: center;
+    align-items: center; /* 縦方向中央揃え */
+    justify-content: center; /* 横方向中央揃え */
+    width: 90%;
+    margin: 16px;
 }
 
 .contentList_box {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 390px;
+    margin: 10px 0;
     height: 257px;
     border: 1px solid;
     border-color: gray;
     border-radius: 10px;
     box-shadow: 0px 2px 3px grey;
+    height: 100%;
 }
 
 .contentList_image img {
@@ -113,18 +120,22 @@ ul {
     border-color: gray;
     box-sizing: border-box;
     border-radius: 10px;
-    width: 390px;
-    height: 160px;
+    width: 100%;
 }
 
 .contentList_inside {
     display: flex;
     flex-direction: row;
     margin-top: 10px;
+    width: 100%;
+}
+
+.contentList_inside_box {
+    width: 100%;
 }
 
 .contentList_inside_icon {
-    margin: 15px;
+    margin: 4%;
     display: flex; 
     flex-direction: column;
     justify-content: center; 
@@ -134,12 +145,14 @@ ul {
 .contentList_inside_column {
     display: flex;
     flex-direction: column;
-    width: 185px;
+    width: 52%;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .contentList_inside_column div {
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin: 5px 0 ;
 }
 
 .contentList_inside_column b {
@@ -147,9 +160,8 @@ ul {
 }
 
 .contentList_inside_name {
-    display: block;
-    font-size: 18px;
-    width: 280px;
+    font-size: 5vw;
+    width: 85%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -160,11 +172,11 @@ ul {
 }
 
 .contentList_inside_column__distance {
-    font-size: 11px;
+    font-size: 3vw;
 }
 
 .contentList_inside_column__average {
-    font-size: 11px;
+    font-size: 3vw;
 }
 
 .contentList_inside_column__average b {
@@ -181,11 +193,12 @@ ul {
     justify-content: center; 
     align-items: center;
     margin-top: 10px;
+    width: 40%;
 }
 
 .contentList_inside_row_price b {
     color: tomato;
-    font-size: 28px;
+    font-size: 8vw;
 }
 
 .walk_fa_size {
@@ -215,36 +228,19 @@ ul {
     border-top: 1px solid gray;
 }
 
-.scroll_images {
-    overflow-y: hidden;
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-    height: 200px;
-}
-
-.scroll_images li {
-    display: inline-block;
-      /* 見た目調整 */
-    height: 200px;
-    margin: 15px;
-    font-size: 48px;
-    background: rgba(255, 0, 0, 0.4);
-}
-
 .scroll_images img {
     height: 200px;
 }
 
 .show_contentList {
-    margin-top: 25px;
     display: flex;
-    justify-content: center;
+    justify-content: center; 
+    align-items: center;
 }
 
 .show_contentList_box {
     flex-direction: column;
-    width: 90vw;
+    margin: 16px;
 }
 
 .show_contentList_box_beer {
@@ -254,7 +250,7 @@ ul {
     align-items: center; /* 縦方向中央揃え */
     -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
     justify-content: center; /* 横方向中央揃え */
-    letter-spacing: 6px;
+    letter-spacing: 1.5vw;
 }
 
 .show_contentList_box_beer_text {
@@ -273,8 +269,7 @@ ul {
 }
 
 .show_contentList_box_info {
-    margin-top: 20px;
-    margin-left: 20px;
+    margin: 20px 0 0 20px;
 }
 
 .show_contentList_box_info div {
@@ -343,7 +338,67 @@ ul {
     align-items: center; /* 縦方向中央揃え */
     -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
     justify-content: center; /* 横方向中央揃え */
-    height: 87px;
+    height: 40vw;
     background-color: gray;
     margin-top: 18px;
+}
+
+.show_menuList {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 縦方向中央揃え */
+    justify-content: center; /* 横方向中央揃え */
+    font-size: 3vw;
+}
+
+.show_menuList_box {
+    margin: 16px;
+    width: 90%;
+}
+
+.show_menuList_item {
+    display: flex;
+    flex-direction: column;
+}
+
+.show_menuList_item_beer {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.show_menuList_item_beer div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 13vw;
+}
+
+.show_menuList_item_beer_name {
+    background-color: rgb(232, 232, 232);
+    border: 1px solid rgb(215, 215, 215);
+    width: 35%;
+}
+
+.show_menuList_item_beer_bool {
+    border: 1px solid rgb(215, 215, 215);
+    width: 65%;
+}
+
+.show_backtoPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vw;
+}
+
+.show_backtoPage_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    width: 50%;
+    height: 45%;
+    border-radius: 35px;
 }
