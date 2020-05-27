@@ -1,9 +1,10 @@
+
 <div class="show_title">
     <h1><%= @shop.name %></h1>
 </div>
 <hr class="show_hr">
 <div>
-    <ul class="scroll_images">
+    <ul class="slider scroll_images" id="img">
     <% for i in 1..4 do %>
         <li>
             <div><%= image_tag("/assets/show_images/2/#{i}.jpg",alt:"お店画像") %></div>
@@ -80,3 +81,10 @@
         <b>一覧に戻る</b>
     </div>
 </div>
+
+<script>
+    jQuery(function(){
+        console.log("表示できてますよね〜");
+        $('.slider').slick();
+    });
+</script>
