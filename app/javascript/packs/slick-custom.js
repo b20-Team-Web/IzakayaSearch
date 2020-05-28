@@ -3,8 +3,10 @@ $(function(){
         console.log("kontiwa");
         $('.slider').slick({
             autoplay:true,
-            autoplaySpeed:5000,
+            centerMode: true,
+            centerPadding: '50px',
             dots:true,
+            focusOnSelect:true,
         });
     });
 })

@@ -228,23 +228,25 @@ ul {
     border-top: 1px solid gray;
 }
 
-.scroll_images {
-    display: flex;
-}
+/*slick setting*/
 
-.scroll_images img {
-    height: 200px;
-}
-
-.slider{
+.slider {
     margin: 20px auto;
-    width: 80%;
-}
-.slider img{
-    height: auto;
     width: 100%;
 }
-/*slick setting*/
+
+.slider div {
+    display: flex;
+    align-items: center;
+}
+
+.slider img {
+    margin: 0 auto;
+    max-height: 250px;
+    width: 90%;
+    object-fit: cover;
+}
+
 .slick-prev:before,
 .slick-next:before {
     color: #000;
