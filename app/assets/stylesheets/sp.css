@@ -1,6 +1,6 @@
 /* top.html.erb の css設定 */
 hr {
-    margin: 0px;
+    margin: 0;
     border-top: 1px solid black;
 }
 
@@ -22,8 +22,8 @@ ul {
 .logo_area {
     text-align: center;
     display: flex;
-    justify-content: center; /*左右中央揃え*/
-    align-items: center;     /*上下中央揃え*/
+    justify-content: center;
+    align-items: center;
     height: 50px;
 }
 
@@ -35,13 +35,12 @@ ul {
     display: flex;
     flex-direction: column;
     background-image: url("/assets/top_image.png");
-    height: 268px;
+    height: 62vw;
     color: wheat;
 }
 
 .top_area_box {
-    margin-top: 60px;
-    margin-left: 18px;
+    margin: 9vw 0 0 6vw;
 }
 
 .top_area_box_head {
@@ -72,7 +71,6 @@ ul {
 
 .top_area_box_middle_big {
     font-size: 68px;
-    font-weight: 900;
 }
 
 .top_area_box_middle_small {
@@ -81,8 +79,7 @@ ul {
 
 .top_area_box_bottom {
     font-size: 12px;
-    margin-left: 50px;
-    margin-top: 10px;
+    margin: 10px 0 0 50px;
     color: white;
 }
 
@@ -107,7 +104,6 @@ ul {
 
 .contentList_box {
     margin: 10px 0;
-    height: 257px;
     border: 1px solid;
     border-color: gray;
     border-radius: 10px;
@@ -171,16 +167,8 @@ ul {
     display: flex;
 }
 
-.contentList_inside_column__distance {
+.contentList_inside_column {
     font-size: 3vw;
-}
-
-.contentList_inside_column__average {
-    font-size: 3vw;
-}
-
-.contentList_inside_column__average b {
-    margin-left: 5px;
 }
 
 .contentList_inside_column__average span {
@@ -197,7 +185,7 @@ ul {
 }
 
 .contentList_inside_row_price b {
-    color: tomato;
+    color: red;
     font-size: 8vw;
 }
 
@@ -209,15 +197,11 @@ ul {
     font-size: 1.2em;
 }
 
-
-
 /* show.html.erb css */
 
 .show_title {
     display: flex;
-    margin-left: 15px;
-    margin-top: 18px;
-    margin-bottom: 10px;
+    margin: 18px 0 10px 15px;
     font-size: 18px;
 }
 
@@ -266,10 +250,8 @@ ul {
 .show_contentList_box_beer {
     display: flex;
     text-align: center;
-    -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
-    align-items: center; /* 縦方向中央揃え */
-    -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
-    justify-content: center; /* 横方向中央揃え */
+    align-items: center;
+    justify-content: center;
     letter-spacing: 1.5vw;
 }
 
@@ -281,7 +263,6 @@ ul {
 .show_contentList_box_beer_price {
     font-size: 48px;
     color: red;
-    font-weight: 800;
 }
 
 .show_contentList_box_beer_price_small {
@@ -308,10 +289,8 @@ ul {
     margin-top: 20px;
     display: flex;
     text-align: center;
-    -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
-    align-items: center; /* 縦方向中央揃え */
-    -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
-    justify-content: center; /* 横方向中央揃え */
+    align-items: center;
+    justify-content: center;
 }
 
 .show_contentList_box_items div { 
@@ -321,10 +300,8 @@ ul {
     border-radius: 10px;
     width: 140px;
     height: 35px;
-    -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
-    align-items: center; /* 縦方向中央揃え */
-    -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
-    justify-content: center; /* 横方向中央揃え */
+    align-items: center;
+    justify-content: center;
 }
 
 .show_contentList_box_items_map {
@@ -354,10 +331,8 @@ ul {
 
 .ad_space {
     display: flex;
-    -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
-    align-items: center; /* 縦方向中央揃え */
-    -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
-    justify-content: center; /* 横方向中央揃え */
+    align-items: center;
+    justify-content: center; 
     height: 40vw;
     background-color: gray;
     margin-top: 18px;
@@ -366,8 +341,8 @@ ul {
 .show_menuList {
     display: flex;
     flex-direction: column;
-    align-items: center; /* 縦方向中央揃え */
-    justify-content: center; /* 横方向中央揃え */
+    align-items: center;
+    justify-content: center;
     font-size: 3vw;
 }
 
