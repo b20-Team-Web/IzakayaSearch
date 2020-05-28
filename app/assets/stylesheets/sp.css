@@ -228,8 +228,26 @@ ul {
     border-top: 1px solid gray;
 }
 
+.scroll_images {
+    display: flex;
+}
+
 .scroll_images img {
     height: 200px;
+}
+
+.slider{
+    margin: 20px auto;
+    width: 80%;
+}
+.slider img{
+    height: auto;
+    width: 100%;
+}
+/*slick setting*/
+.slick-prev:before,
+.slick-next:before {
+    color: #000;
 }
 
 .show_contentList {

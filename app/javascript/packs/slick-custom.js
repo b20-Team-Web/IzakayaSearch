@@ -1,6 +1,10 @@
 $(function(){
     $(document).ready(function(){
-        console.log("こんばんわ");
-        $('.scroll_images').slick();
+        console.log("kontiwa");
+        $('.slider').slick({
+            autoplay:true,
+            autoplaySpeed:5000,
+            dots:true,
+        });
     });
 })
