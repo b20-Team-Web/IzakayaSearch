@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  average: 1
+  beer_price: 
+  distance: MyString
+  content: MyString
+  url: MyString
+
+two:
+  name: MyString
+  average: 1
+  beer_price: 
+  distance: MyString
+  content: MyString
+  url: MyString
