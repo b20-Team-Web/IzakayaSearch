@@ -1,0 +1,25 @@
+<div style="text-align: center;">
+    <h1>ビール</h1>
+    <%
+    ## ビールメニュー
+    @beers.each do |drink|
+        concat simple_format(h(drink))
+    end
+    %>
+
+    <h1>ドリンクメニュー</h1>
+    <%
+    ## ドリンクメニュー
+    @drinks.each do |drink|
+        concat simple_format(h(drink))
+    end
+    %>
+
+    <h1>価格</h1>
+    <%
+    ## 価格
+    @prices.each do |price|
+        concat simple_format(h(price))
+    end
+    %>
+</div>
