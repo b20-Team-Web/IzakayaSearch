@@ -4,32 +4,33 @@ class GurunabiController < ApplicationController
     require "nokogiri"
 
     def index
-        uri = "https://r.gnavi.co.jp/getz305/menu3/"
-        @doc = Nokogiri::HTML(open(uri),nil,"utf-8")
+        uri       = "https://r.gnavi.co.jp/b676801/menu5/"
+        @doc      = Nokogiri::HTML(open(uri),nil,"utf-8")
+        @items    = []
         @drinks = []
-        @beers  = []
-        @prices = []
 
+        menu = @doc.css('.menu')
 
-    ## ドリンクの取得
-    @doc.css("li/dl/dt", ".menu-term .cx/.menu-term").each do |link|
-        if link.text.include?("◇") != true && link.text.include?("◆") != true
-            @drinks << link.inner_text
+        # メニューアイテム
+        menu.css('.menu-item').each do |link|
+            @items << link
         end
-    end
 
-    ## ビールの取得
-    @doc.css(".menu-list").each do |link|
-        @beers << link.inner_text
-    end
+        # 各メニュー情報の取得
+        @items.each do |item|
+            name = item.css('.menu-term').inner_text
+            getPrice = item.css('.menu-price').inner_text.scan(/\d[,\d]\d+/)
+            price = []
 
-    # @beers = @doc.xpath('')
+            getPrice.each do |children|
+                price << children.sub(',', '_').to_i
+            end
 
-    ## 価格の取得
-    @doc.css("li/dl/dd/table/tbody/tr/td", ".menu-price").each do |link|
-        if link.text.include?("円") && link.text.include?("♪") != true
-            @prices << link.inner_text
+            @drinks << {
+                "name"  => name,
+                "price" => price,
+        }
         end
-    end
+
     end
 end
