@@ -57,3 +57,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 
 gem 'whenever', require: false
+
+gem 'rubyzip', '>= 1.2.1'
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: '776037c0fc799bb09da8c9ea47980bd3bf296874'
+gem 'axlsx_rails'
+
+gem 'will_paginate', '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
