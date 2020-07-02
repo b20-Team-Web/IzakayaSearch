@@ -7,7 +7,7 @@ class GurunabiController < ApplicationController
         uri       = "https://r.gnavi.co.jp/b676801/menu5/"
         @doc      = Nokogiri::HTML(open(uri),nil,"utf-8")
         @items    = []
-        @drinks = []
+        @drinks   = []
 
         menu = @doc.css('.menu')
 
@@ -29,7 +29,7 @@ class GurunabiController < ApplicationController
             @drinks << {
                 "name"  => name,
                 "price" => price,
-        }
+            }
         end
 
     end
