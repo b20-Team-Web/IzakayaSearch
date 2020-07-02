@@ -57,4 +57,21 @@ namespace :sample_task do
         result = JSON.parse(json) #返ってきたjsonデータをrubyの配列に変換
         puts result
     end
+
+    desc "csvファイルの作成テスト"
+    task :make_csv => :environment do
+        require 'csv'
+        shops = Shop.all
+
+        CSV.open('test.csv','w') do |test|
+
+            header = %w(id name average create_at apdate_at)
+            test << header
+
+            shops.each do |shop|
+            values = [shop.id, shop.name, shop.average, shop.created_at, shop.updated_at]
+            test << values
+            end
+        end
+    end
 end

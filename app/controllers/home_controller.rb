@@ -8,23 +8,17 @@ class HomeController < ApplicationController
     @shop = Shop.find_by(id: params[:id])
   end
 
+  require "csv"
   def csv
-    respond_to do |format|
-      format.html
-      format.csv do |csv|
+    CSV.open('test.csv','w') do |test|
+      shops = Shop.all
 
-        shops = Shop.all
+      header = %w(id name average create_at apdate_at)
+      csv << header
 
-        csv_data = CSV.generate do |csv|
-          header = %w(id name average create_at apdate_at)
-          csv << header
-
-          shops.each do |shop|
-            values = [shop.id, shop.name, shop.average, shop.create_at, shop.update_at]
-            csv << values
-          end
-        end
-        send_data(csv_data, filename: "shops.csv")
+      shops.each do |shop|
+        values = [shop.id, shop.name, shop.average, shop.created_at, shop.updated_at]
+        csv << values
       end
     end
   end
