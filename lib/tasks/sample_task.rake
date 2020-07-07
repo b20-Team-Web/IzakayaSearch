@@ -48,7 +48,7 @@ namespace :sample_task do
 
         KEY_ID = '8c3588ed9e7efdb4b8aabb5d5768ee82'
         AREA_CODE_S = 'AREAS2288'
-        HIT_PER_PAGE = '1'
+        HIT_PER_PAGE = '10'
 
         url = "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=#{KEY_ID}&areacode_s=#{AREA_CODE_S}&hit_per_page=#{HIT_PER_PAGE}"
 
@@ -87,37 +87,40 @@ namespace :sample_task do
 
         KEY_ID       = '8c3588ed9e7efdb4b8aabb5d5768ee82'
         AREA_CODE_S  = 'AREAS2288'
-        HIT_PER_PAGE = '10'
+        HIT_PER_PAGE = '100'
 
         API_URL = "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=#{KEY_ID}&areacode_s=#{AREA_CODE_S}&hit_per_page=#{HIT_PER_PAGE}"
 
         uri    = URI.parse(API_URL)
         json   = Net::HTTP.get(uri) #NET::HTTPを利用してAPIを叩く
         result = JSON.parse(json) #返ってきたjsonデータをrubyの配列に変換
-        name   = [] # 店舗名
-        ids    = [] # 店舗ID
-        urls   = [] # 店舗URL
+        getData = []
 
         result['rest'].each do |rest|
-            name << rest['name']
-            ids  << rest["id"]
-            urls << rest['url']
+            getData << {
+                "id"        => rest["id"],        # 店舗ID
+                "name"      => rest["name"],      # 店舗名
+                "nameKana"  => rest["name_kana"], # 店舗名カナ
+                "latitude"  => rest["latitude"],  # 緯度
+                "longitude" => rest["longitude"], # 軽度
+                "url"       => rest["url"],       # 店舗URL
+                "drinkUrl"  => 'https://r.gnavi.co.jp/' + rest["id"] + '/drink', # ドリンクURL
+                "address"   => rest["address"],   # 住所
+                "tel"       => rest["tel"],       # 電話番号
+                "imageUrl"  => rest["image_url"], # shop_image1: 画像1, shop_image2: 画像2, qrcode: QRコード
+                "budget"    => rest["budget"],    # 平均予算
+                "products"  => [],                # 商品
+            }
         end
 
         #----------------- ここまで -----------------#
         #----------------- スクレイピング -----------------#
 
-        drink_urls = [] # ドリンクURL
-        ids.each do |id|
-            drink_urls << 'https://r.gnavi.co.jp/' + id + '/drink'
-        end
+        getData.each do |data|
+            dom = Nokogiri::HTML(open(data["drinkUrl"]),nil,"utf-8")
+            menu = dom.css('.menu')
 
-        items  = []
-        drinks = []
-
-        drink_urls.each do |url|
-            doc = Nokogiri::HTML(open(url),nil,"utf-8")
-            menu = doc.css('.menu')
+            items = []
 
             # メニューアイテム
             menu.css('.menu-item').each do |link|
@@ -125,18 +128,16 @@ namespace :sample_task do
             end
 
             items.each do |item|
-                name = item.css('.menu-term').inner_text.scan(/\S+/)
-                getPrice = item.css('.menu-price').inner_text.scan(/\d[,\d]\d+/)
+                productName  = item.css('.menu-term').inner_text.scan(/\S+/)
+                productPrice = item.css('.menu-price').inner_text.scan(/\d[,\d]\d+/)
                 price = []
 
-                getPrice.each do |children|
-                    price << children.sub(',', '_').to_i
+                productPrice.each do |price|
+                    price << price.sub(',', '_').to_i
                 end
-
-                drinks << {
-                    "url"   => url,
-                    "name"  => name,
-                    "price" => price,
+                data["products"] << {
+                    "productName"  => productName,
+                    "productPrice" => productPrice,
                 }
             end
         end
@@ -144,12 +145,25 @@ namespace :sample_task do
         #----------------- CSV -----------------#
 
         CSV.open('test.csv','w') do |item|
-            header = %w(name url drink price)
+            header = %w(店舗ID 店舗名 店舗名カナ 緯度 軽度 店舗URL ドリンクURL 住所 電話番号 平均予算 商品)
             item << header
 
-            drinks.each do |drink|
-                values = [drink["url"], drink["name"], drink["price"]]
-                item << values
+            getData.each do |data|
+                values = [
+                    data["id"],
+                    data["name"],
+                    data["nameKana"],
+                    data["latitude"],
+                    data["longitude"],
+                    data["url"],
+                    data["drinkUrl"],
+                    data["address"],
+                    data["tel"],
+                    data["budget"],
+                    data["products"],
+                ]
+
+                    item << values
             end
         end
 
