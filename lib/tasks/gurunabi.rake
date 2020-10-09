@@ -245,4 +245,21 @@ namespace :gurunabi do
         time = Time.now - start_time
         puts "処理時間 : #{time.floor}s"
     end
+
+    desc "スプレッドシート読み込み"
+    task :spredsheet do
+        require 'google_drive'
+
+    end
+
+    desc 'CSV読み込み'
+    task :readcsv => :environment do
+        require 'csv'
+
+        test = Drink.new(
+            name: 'hoge',
+            drink_type: 1,
+        )
+        test.save
+    end
 end
