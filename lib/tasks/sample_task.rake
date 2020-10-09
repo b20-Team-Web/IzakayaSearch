@@ -30,6 +30,16 @@ namespace :sample_task do
         end
     end
 
+    desc "CSV読み込み"
+    task :readcsv => :environment do
+        require 'csv'
+        drink = Drink.new(
+            name: "hoge",
+            type: 1
+        )
+        drink.save
+    end
+
     desc "DBの内容を削除するタスクです"
     task :destroy_data => :environment do
         shop = Shop.all

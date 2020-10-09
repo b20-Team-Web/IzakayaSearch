@@ -60,3 +60,5 @@ gem 'whenever', require: false
 
 # スクレイピング、クローリング用のライブラリ
 gem 'nokogiri'
+
+gem 'rack-user_agent'
