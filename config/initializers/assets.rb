@@ -12,6 +12,9 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
-Rails.application.config.assets.precompile += %w( application.css )
+# html内view毎に読み込みたいcss,jsを書き込むことでcontent_forを使って呼び出すことができる
+Rails.application.config.assets.precompile += %w( 
+        application.css
+    )
 
 Rails.application.config.assets.precompile += ['*.js','*.css']
