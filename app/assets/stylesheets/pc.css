@@ -1,0 +1,113 @@
+.first_area_pc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+
+.top_area_image {
+    display: flex;
+    background-image: url("/assets/top_image_pc.jpg");
+    background-size: cover;
+    height: 45vw;
+    width: 100%;
+}
+
+.top_area_image div {
+    font-weight: bold;
+    color: #FFC700;
+    text-shadow:1px 1px 0 black,-1px 1px 0 black,1px -1px 0 black,-1px -1px 0 black;
+}
+
+.top_area_text_oya_box {
+    display: flex;
+    flex-direction: column;
+    margin: 10% 0 0 20%;
+    
+}
+
+.top_area_text_ko_1 {
+    display: flex;
+    align-items: flex-end;
+}
+
+.pc_fontsize_small {
+    font-size: 2vw;
+}
+
+.pc_fontsize_largesmall {
+    font-size: 2.5vw;
+}
+
+.pc_fontsize_normal {
+    font-size: 5vw;
+}
+
+.pc_fontsize_large {
+    font-size: 10vw;
+}
+
+.top_area_text_ko_2 {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 10%;
+}
+
+.content_area {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+
+.search_midashi {
+    display: flex;
+    align-items: center;
+    background-color: #dcdcdc;
+    
+}
+
+.content_pankuzu {
+    display: flex;
+    height: 40px;
+    align-items: center;
+}
+
+.content_main_items{
+    display: flex;
+}
+
+.content_search {
+    width: 30%;
+
+}
+
+.search_midashi_icon {
+    width: 15%;
+    text-align: center;
+}
+
+.search_sort {
+    margin-top: 2vw;
+}
+
+.search_sort div{
+    height: 6vw;
+}
+
+.search_name {
+    margin-top: 2vw;
+}
+
+.search_name_eg {
+    color: #a9a9a9;
+}
+
+.search_name_window div{
+    height: 6vw;
+}
+
+
+
+.content_ranking {
+    width: 70%;
+}
