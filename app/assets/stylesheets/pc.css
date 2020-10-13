@@ -22,7 +22,7 @@
 .top_area_text_oya_box {
     display: flex;
     flex-direction: column;
-    margin: 10% 0 0 20%;
+    margin: 6% 0 0 20%;
     
 }
 
@@ -50,7 +50,6 @@
 .top_area_text_ko_2 {
     display: flex;
     align-items: flex-end;
-    margin-top: 10%;
 }
 
 .content_area {
@@ -78,7 +77,7 @@
 
 .content_search {
     width: 30%;
-
+    margin-right: 2vw;
 }
 
 .search_midashi_icon {
@@ -106,8 +105,100 @@
     height: 6vw;
 }
 
-
-
 .content_ranking {
     width: 70%;
+}
+
+.content_ranking h2 {
+    font-size: 26px;
+}
+
+.content_ranking hr {
+    margin-top: 1vw;
+    border-top: 1px solid #d3d3d3;
+}
+
+.ranking_box_oya {
+    display: flex;
+    margin: 1vw 1vw 1vw 1vw;
+}
+
+.ranking_box_image {
+    display: inline-flex;
+    width: 30%;
+    margin-right: 1vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.ranking_item_info {
+    width: 70%;
+}
+
+.ranking_box_image img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.ranking_item_top {
+    display: flex;
+}
+
+.ranking_item_top div {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.ranking_item_middle {
+    display: flex;
+}
+
+.orange {
+    color: orange;
+}
+
+.dimgray {
+    color:dimgray;
+}
+
+.item_middle_dis {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.item_dis_info {
+    display: flex;
+    flex-direction: row;
+}
+
+.item_ave_info {
+    display: flex;
+    flex-direction: row;
+}
+
+.item_price_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+
+.item_ilc_tag {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item_shop_des {
+    color: #a9a9a9;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
 }
