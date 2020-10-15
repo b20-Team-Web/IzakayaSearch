@@ -1,0 +1,88 @@
+
+<div class="show_title">
+    <h1>hogehogehoge</h1>
+</div>
+<hr class="show_hr">
+<div>
+    <ul class="slider scroll_images" id="img">
+    <% for i in 1..4 do %>
+        <li>
+            <div><%= image_tag("/assets/show_images/2/#{i}.jpg",alt:"お店画像") %></div>
+        </li>
+    <% end %>
+        <li>
+            <div><%= image_tag("/assets/item_image/1.jpg" , alt:"横長画像") %></div>
+        </li>
+    </ul>
+</div>
+
+<div class="show_contentList">
+    <ul>
+        <li class="show_contentList_box">
+            <div class="show_contentList_box_beer">
+                <div class="show_contentList_box_beer_text">
+                    <b>ビール最安</b>
+                </div>
+                <div class="show_contentList_box_beer_price">
+                    <b class="show_contentList_box_beer_price_small">¥</b><b>300~</b>
+                </div>
+            </div>
+            <div class="show_contentList_box_info">
+                <div>
+                    <i class="fas fa-walking walk_fa_size"></i><b class="show_contentList_box_info_dis">ＪＲ 八王子駅 徒歩2分</b>
+                </div>
+                <div>
+                    <i class="fas fa-utensils ave_fa_size"></i><b class="show_contentList_box_info_ave">¥300円~</b>
+                </div>
+            </div>
+            <div class="show_contentList_box_items">
+                <div class="show_contentList_box_items_map">
+                    <%= image_tag("/assets/icons/google_map_icon.svg") %>
+                    <span class="material-icons">chevron_right</span>
+                </div>
+                <div class="show_contentList_box_items_grnb">
+                    <%= image_tag("/assets/icons/gurunabi.jpg") %><span class="material-icons">chevron_right</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="ad_space">
+    <div>広告スペース</div>
+</div>
+<div class="sub_title">
+    <b>取り扱っているビールの種類</b>
+</div>
+<div class="show_menuList">
+    <ul class="show_menuList_box">
+        <li class="show_menuList_item">
+            <div class="show_menuList_item_beer">
+                <div class="show_menuList_item_beer_name">アサヒ</div>
+                <div class="show_menuList_item_beer_bool">○</div>
+            </div>
+            <div class="show_menuList_item_beer">
+                <div class="show_menuList_item_beer_name">キリン</div>
+                <div class="show_menuList_item_beer_bool">○</div>
+            </div>
+            <div class="show_menuList_item_beer">
+                <div class="show_menuList_item_beer_name">一番搾り</div>
+                <div class="show_menuList_item_beer_bool">○</div>
+            </div>
+            <div class="show_menuList_item_beer">
+                <div class="show_menuList_item_beer_name">プレミアムモルツ</div>
+                <div class="show_menuList_item_beer_bool">○</div>
+            </div>
+            <div class="show_menuList_item_beer">
+                <div class="show_menuList_item_beer_name">orion</div>
+                <div class="show_menuList_item_beer_bool">○</div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="show_backtoPage">
+    <div class="show_backtoPage_item">
+        <b>一覧に戻る</b>
+    </div>
+</div>
+
+<%= javascript_pack_tag 'slick-custom.js' %> <!-- pack_tagの動作確認 -->
