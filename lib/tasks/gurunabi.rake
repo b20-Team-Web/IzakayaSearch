@@ -262,4 +262,59 @@ namespace :gurunabi do
         )
         test.save
     end
+
+    desc 'メニュー取得'
+    task :getMenu do
+        require 'csv'
+        drink_urls = []
+        count        = 0
+
+        CSV.read('/Users/sugiyamajoufutoshi/Downloads/test - test12.csv', headers: false).each do |row|
+            drink_urls << row[6]
+        end
+
+        # メニューのみスクレイピングする関数
+        def ScrapingMenu(items, get_menus)
+            items.each do |item|
+                productName  = item.css('.menu-term').inner_text.scan(/\S+/)
+                puts productName
+                get_menus << productName
+            end
+        end
+
+        # items があるかの判定する関数
+        def IsItems(url)
+            sleep(1) # アクセス数を抑えるため１秒スリープさせている
+            dom = Nokogiri::HTML(URI.open(url),nil,"utf-8")
+            menu = dom.css('.menu')
+
+            items = []
+
+            menu.css('.menu-item').each do |link|
+                items << link
+            end
+
+            return items
+        end
+
+        get_menus = []
+
+        drink_urls.each do |url|
+            count += 1
+            puts count
+            items = IsItems(url)
+            ScrapingMenu(items, get_menus)
+            puts '--------------'
+        end
+        puts get_menus
+
+        CSV.open('./getOnlyMenu.csv','w') do |item|
+            header = %w(商品名)
+            item << header
+
+            get_menus.each do |menu|
+                item << menu
+            end
+        end
+    end
 end
