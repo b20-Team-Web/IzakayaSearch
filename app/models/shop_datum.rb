@@ -1,2 +1,0 @@
-class ShopDatum < ApplicationRecord
-end

@@ -10,51 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_09_042926) do
+ActiveRecord::Schema.define(version: 2020_10_17_141601) do
 
-  create_table "drink_type", force: :cascade do |t|
-    t.string "type"
+  create_table "beer_correspondence", force: :cascade do |t|
+    t.string "beer_name"
+    t.integer "drink_id"
   end
 
-  create_table "drinks", force: :cascade do |t|
-    t.string "name"
-    t.integer "drink_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "shops", force: :cascade do |t|
-    t.string "name"
-    t.integer "average"
-    t.integer "beer_price"
-    t.string "distance"
-    t.string "content"
-    t.string "url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "image"
-  end
-
-  create_table "store_drink_price", force: :cascade do |t|
+  create_table "drink_prices", force: :cascade do |t|
     t.integer "store_id"
     t.integer "drink_id"
     t.integer "drink_price"
   end
 
-  create_table "stores_info", force: :cascade do |t|
+  create_table "drink_types", force: :cascade do |t|
+    t.integer "drink_type"
+  end
+
+  create_table "drinks", force: :cascade do |t|
+    t.integer "drink_id"
     t.string "name"
-    t.string "name_ruby"
+    t.integer "drink_type"
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.integer "store_id"
+    t.string "name"
+    t.string "name_kana"
     t.float "latitude"
     t.float "longitude"
     t.string "address"
+    t.string "url"
+    t.string "drink_url"
     t.string "image1"
     t.string "image2"
-    t.string "store_url"
-    t.string "drink_url"
-    t.integer "phone"
-    t.integer "is_reservation"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "tel"
+    t.string "opentime"
+    t.string "holiday"
+    t.string "access_line"
+    t.string "access_station"
+    t.string "access_station_exit"
+    t.integer "access_walk"
+    t.string "access_note"
+    t.integer "parking_lots"
+    t.string "pr"
+    t.integer "budget"
+    t.integer "party"
+    t.integer "lunch"
+    t.string "credit_card"
+    t.string "e_money"
   end
 
 end
