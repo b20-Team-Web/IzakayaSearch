@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_10_17_141601) do
 
-  create_table "beer_correspondence", force: :cascade do |t|
+  create_table "beer_correspondences", force: :cascade do |t|
     t.string "beer_name"
     t.integer "drink_id"
   end

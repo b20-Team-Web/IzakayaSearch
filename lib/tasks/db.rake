@@ -23,4 +23,17 @@ namespace :db do
             drink_type.save
         end
     end
+
+    desc "ビール対応表のInsertを行う"
+    task :beer_correspondence_insert => :environment do
+        require 'csv'
+
+        CSV.read('csv/beer_correspondence1.csv', headers: false).each do |row|
+            beer_correspondence = BeerCorrespondence.new(
+                beer_name: row[0],
+                drink_id: row[1]
+            )
+            beer_correspondence.save
+        end
+    end
 end
