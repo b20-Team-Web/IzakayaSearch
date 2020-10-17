@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_10_17_141601) do
   end
 
   create_table "drink_types", force: :cascade do |t|
-    t.integer "drink_type"
+    t.string "drink_type"
   end
 
   create_table "drinks", force: :cascade do |t|

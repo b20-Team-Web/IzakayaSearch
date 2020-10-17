@@ -11,4 +11,16 @@ namespace :db do
             drink.save
         end
     end
+
+    desc "ドリンクタイプのInsertを行う"
+    task :drink_type_insert => :environment do
+        require 'csv'
+
+        CSV.read('csv/drink_type1.csv', headers: false).each do |row|
+            drink_type = DrinkType.new(
+                drink_type: row[0],
+            )
+            drink_type.save
+        end
+    end
 end
