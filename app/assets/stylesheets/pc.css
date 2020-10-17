@@ -1,3 +1,14 @@
+.footer {
+    margin-top: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer div {
+    margin: 4vw;
+}
+
 .first_area_pc {
     display: flex;
     flex-direction: column;
@@ -365,7 +376,87 @@
     color: red;
 }
 
+.tag_area {
+    width: 80%;
+}
 
+.tag_box {
+    font-size: 2vw;
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.tag_box span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 3vw;
+    margin: 0.5vw;
+}
 
+.tag_bottom {
+    width: 80%;
+}
 
+.beer_type {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.beer_type_item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.beer_name {
+    margin-left: 5%;
+}
+
+.beer_price {
+    margin-right: 5%;
+}
+
+.detail_info_top {
+    width: 80%;
+}
+
+.ditail_info {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ditail_info_item {
+    display: flex;
+    flex-direction: row;
+}
+
+.ditail_info_type {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    height: auto;
+    background-color: #FFE798;
+}
+
+.ditail_info_type div {
+    margin-left: 10%;
+}
+
+.ditail_info_data {
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: 70%;
+}
+
+.ditail_info_data div {
+    margin: 2vw;
+}
+
+.ditail_info_hr {
+    margin: 0;
+}

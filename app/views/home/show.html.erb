@@ -38,4 +38,64 @@
     </div>
     <hr class="cheap_beer_bottom">
 
+    <div class="tag_area">
+        <div>
+            <b>このお店のお酒タグ</b>
+        </div>
+        <div class="tag_box"><!-- ループを回そう -->
+            <span class="badge badge-info">すぷもーに</span>
+            <span class="badge badge-info">しゃんでぃがふ</span>
+            <span class="badge badge-info">すくりゅーどらいばー</span>
+            <span class="badge badge-info">もひーと</span>
+            <span class="badge badge-info">ぶらっどめありー</span>
+            <span class="badge badge-info">まるがりーた</span>
+            <span class="badge badge-info">ぴにゃこらーだ</span>
+            <span class="badge badge-info">もすこみゅーる</span>
+            <span class="badge badge-info">XYZ</span>
+        </div>
+    </div>
+    <hr class="tag_bottom">
+    <div class="beer_type">
+        <div>
+            ビールの種類
+        </div>
+        <hr>
+        <div><!-- ループで回す -->
+        <% 5.times do |i| %>
+            <div class="beer_type_item">
+                <div class="beer_name">
+                    サッポロ生ビール　黒ラベル
+                </div>
+                <div class="beer_price">
+                    300円
+                </div>
+            </div>
+            <hr>
+        <% end %>
+        </div>
+    </div>
+    <hr class="detail_info_top">
+    <div class="ditail_info">
+        <div>
+            <h2>店舗情報</h2>
+        </div>
+        <hr class="ditail_info_hr">
+        <% data_type =["店名","平均価格","住所","アクセス","電話番号","営業時間"] %>
+        <% 6.times do |i| %>
+        <div class="ditail_info_item">
+            <div class="ditail_info_type">
+                <div>
+                    <%= data_type[i] %>
+                </div>
+            </div>
+            <div class="ditail_info_data">
+                <div>
+                    何かしらの情報！
+                </div>
+            </div>
+        </div>
+        <hr class="ditail_info_hr">
+        <% end %>
+    </div>
+
 </div>
