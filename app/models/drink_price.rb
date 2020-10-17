@@ -1,0 +1,2 @@
+class DrinkPrice < ApplicationRecord
+end
