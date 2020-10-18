@@ -110,20 +110,24 @@ namespace :db do
         require 'csv'
         num = 0
         stores = Store.all
-        csv_id = []
+        csvs = []
         CSV.read('csv/drink_url1.csv', headers: false).each do |row|
-            csv_id << row[0]
+            csvs << {
+                'id' => row[0],
+                'drink_url' => row[6]
+            }
         end
 
         stores.each do |store|
-            csv_id.each do |id|
-                if store.attributes['store_id'] === id
+            csvs.each do |csv|
+                if store.attributes['store_id'] === csv['id']
+                    store_data_match = Store.find_by(store_id: store.attributes['store_id'])
+                    store_data_match.drink_url = csv['drink_url']
+                    store_data_match.save
                     num += 1
-                    puts id
-                    next
+                    break
                 end
             end
-            puts store.attributes["store_id"] === csv_id[0]
         end
         puts num
     end
