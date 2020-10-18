@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_10_17_141601) do
   end
 
   create_table "stores", force: :cascade do |t|
-    t.integer "store_id"
+    t.string "store_id"
     t.string "name"
     t.string "name_kana"
     t.float "latitude"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_10_17_141601) do
     t.string "drink_url"
     t.string "image1"
     t.string "image2"
-    t.integer "tel"
+    t.string "tel"
     t.string "opentime"
     t.string "holiday"
     t.string "access_line"
