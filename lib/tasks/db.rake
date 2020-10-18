@@ -72,36 +72,61 @@ namespace :db do
             total_hit_count = result['total_hit_count'] # 検索でヒットした店舗数 Integer
 
             result['rest'].each do |rest|
-                stores = Store.new(
-                    store_id: rest['id'],
-                    name: rest['name'],
-                    name_kana: rest['name_kana'],
-                    latitude: rest['latitude'],
-                    longitude: rest['longitude'],
-                    address: rest['address'],
-                    url: rest['url'],
-                    drink_url: '',
-                    image1: rest['image_url']['shop_image1'],
-                    image2: rest['image_url']['shop_image2'],
-                    tel: rest['tel'],
-                    opentime: rest['opentime'],
-                    holiday: rest['holiday'],
-                    access_line: rest['access']['line'],
-                    access_station: rest['access']['station'],
-                    access_station_exit: rest['access']['station_exit'],
-                    access_walk: rest['access']['walk'],
-                    access_note: rest['access']['note'],
-                    parking_lots: rest['parking_lots'],
-                    pr: rest['pr']['pr_short'],
-                    budget: rest['budget'],
-                    party: rest['party'],
-                    lunch: rest['lunch'],
-                    credit_card: rest['credit_card'],
-                    e_money: rest['e_money']
-                )
-                stores.save
+                # stores = Store.new(
+                #     store_id: rest['id'],
+                #     name: rest['name'],
+                #     name_kana: rest['name_kana'],
+                #     latitude: rest['latitude'],
+                #     longitude: rest['longitude'],
+                #     address: rest['address'],
+                #     url: rest['url'],
+                #     drink_url: '',
+                #     image1: rest['image_url']['shop_image1'],
+                #     image2: rest['image_url']['shop_image2'],
+                #     tel: rest['tel'],
+                #     opentime: rest['opentime'],
+                #     holiday: rest['holiday'],
+                #     access_line: rest['access']['line'],
+                #     access_station: rest['access']['station'],
+                #     access_station_exit: rest['access']['station_exit'],
+                #     access_walk: rest['access']['walk'],
+                #     access_note: rest['access']['note'],
+                #     parking_lots: rest['parking_lots'],
+                #     pr: rest['pr']['pr_short'],
+                #     budget: rest['budget'],
+                #     party: rest['party'],
+                #     lunch: rest['lunch'],
+                #     credit_card: rest['credit_card'],
+                #     e_money: rest['e_money']
+                # )
+                # stores.save
+                puts rest['id']
             end
+            exit
             offSet += 100
         end
+    end
+
+    desc "ドリンク価格のInsertを行う"
+    task :drink_prices => :environment do
+        require 'csv'
+        num = 0
+        stores = Store.all
+        csv_id = []
+        CSV.read('csv/drink_url1.csv', headers: false).each do |row|
+            csv_id << row[0]
+        end
+
+        stores.each do |store|
+            # csv_id.each do |id|
+            #     if store.attributes['store_id'] === id
+            #         num += 1
+            #         puts id
+            #         next
+            #     end
+            # end
+            puts store.attributes["store_id"] === csv_id[0]
+        end
+        puts num
     end
 end
