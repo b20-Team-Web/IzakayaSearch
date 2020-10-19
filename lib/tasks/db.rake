@@ -37,7 +37,7 @@ namespace :db do
         end
     end
 
-    desc "APIら取得した店舗情報のInsertを行う"
+    desc "APIから取得した店舗情報のInsertを行う"
     task :stores_insert => :environment do
         require 'net/http'
         require 'uri'
@@ -130,5 +130,73 @@ namespace :db do
             end
         end
         puts num
+    end
+
+    desc "ビールのスクレイピング / データのInsertを行う"
+    task :beer_scraping_insert => :environment do
+        drink_urls_data = []
+        num = 0
+        stores = Store.all
+        stores.each do |store|
+            if store.attributes['drink_url'] != ''
+                drink_urls_data << {
+                    'drink_url' => store.attributes['drink_url'],
+                    'store_id'  => store.attributes['store_id']
+                }
+            end
+        end
+
+        # ビール対応表の取得
+        beer_name = BeerCorrespondence.all
+
+        # items があるかの判定する関数
+        def IsItems(drink_url)
+            sleep(1) # アクセス数を抑えるため１秒スリープさせている
+            dom = Nokogiri::HTML(URI.open(drink_url),nil,"utf-8")
+            menu = dom.css('.menu')
+
+            items = []
+
+            menu.css('.menu-item').each do |link|
+                items << link
+            end
+
+            return items
+        end
+
+        # ビールのスクレイピング関数
+        def BeerScraping(store_id, items, beer_name)
+            items.each do |item|
+                productName  = item.css('.menu-term').inner_text.scan(/\S+/)
+                productPrice = item.css('.menu-price').inner_text.scan(/\d[,\d]\d+/)
+
+                beer_name.each do |name|
+                    if productName[0] === name.attributes['beer_name']
+                        if productPrice[0] === nil then
+                            break
+                        end
+                        productPrice_int = productPrice[0].to_i
+
+                        beer_price = DrinkPrice.new(
+                            store_id: store_id,
+                            drink_id: name.attributes['drink_id'],
+                            drink_price: productPrice_int,
+                        )
+                        beer_price.save
+                        break
+                    end
+                end
+            end
+        end
+
+        i = 0
+
+        # 店舗データベースのドリンクURLを使用して、スクレイピング開始
+        drink_urls_data.each do |data|
+            i += 1
+            puts "--------------  #{i}   --------------"
+            items = IsItems(data['drink_url'])
+            BeerScraping(data['store_id'], items, beer_name)
+        end
     end
 end
