@@ -1,7 +1,10 @@
 <div class="show_box">
     <div class="show_midashi">
         <div class="content_pankuzu">
-            <div>パンくずリスト</div>
+            <div>
+                <% breadcrumb :show %>
+                <%= breadcrumbs separator: " &rsaquo;" %>
+            </div>
         </div>
         <div>
             <h2>店名店名店名店名店名店名店名店名店名</h2>

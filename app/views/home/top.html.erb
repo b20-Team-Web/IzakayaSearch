@@ -2,6 +2,8 @@
     <%= stylesheet_link_tag 'pc' %>
 <% end %>
 
+<% breadcrumb :top %>
+
 <div class="first_area_pc">
     <div class="top_area_image">
         <div class="top_area_text_oya_box">
@@ -37,7 +39,9 @@
 <div class="first_area_pc">
     <div class="content_area">
         <div class="content_pankuzu">
-            <div>パンくずリスト</div>
+            <div>
+                <%= breadcrumbs separator: " &rsaquo;"%>
+            </div>
         </div>
 
         <!-- 追従メニュー -->

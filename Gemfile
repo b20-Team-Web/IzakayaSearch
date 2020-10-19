@@ -62,3 +62,7 @@ gem 'whenever', require: false
 gem 'nokogiri'
 
 gem 'rack-user_agent'
+
+#https://qiita.com/13Slhr77Cgzn892/items/af5850ddd0d820f12aca
+gem 'gretel'
+
