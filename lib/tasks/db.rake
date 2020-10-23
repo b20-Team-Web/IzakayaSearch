@@ -1,3 +1,14 @@
+=begin
+    TASKの実行順番
+
+    1. ドリンクタイプのインサートを行う             => rake db:drink_type_insert
+    2. ビールメニューのインサートを行う             => rake db:drink_beer_insert
+    3. ビール対応表のInsertを行う                 => rake db:beer_correspondence_insert
+    4. 店舗情報のInsertを行う                    => rake db:stores_insert
+    5. ドリンクURLのInsertを行う                 => rake db:drink_url_insert
+    6. ビールのスクレイピング / データのInsertを行う => rake db:beer_scraping_insert
+=end
+
 namespace :db do
     desc "ビールメニューのInsertを行う"
     task :drink_beer_insert => :environment do
@@ -6,7 +17,7 @@ namespace :db do
         CSV.read('csv/beer_drinks1.csv', headers: false).each do |row|
             drink = Drink.new(
                 name: row[0],
-                drink_type: 1
+                drink_type_id: 1
             )
             drink.save
         end
@@ -18,7 +29,7 @@ namespace :db do
 
         CSV.read('csv/drink_type1.csv', headers: false).each do |row|
             drink_type = DrinkType.new(
-                drink_type: row[0],
+                name: row[0],
             )
             drink_type.save
         end
@@ -30,14 +41,14 @@ namespace :db do
 
         CSV.read('csv/beer_correspondence1.csv', headers: false).each do |row|
             beer_correspondence = BeerCorrespondence.new(
-                beer_name: row[0],
+                name: row[0],
                 drink_id: row[1]
             )
             beer_correspondence.save
         end
     end
 
-    desc "APIから取得した店舗情報のInsertを行う"
+    desc "店舗情報のInsertを行う"
     task :stores_insert => :environment do
         require 'net/http'
         require 'uri'
@@ -73,7 +84,7 @@ namespace :db do
 
             result['rest'].each do |rest|
                 stores = Store.new(
-                    store_id: rest['id'],
+                    code: rest['id'],
                     name: rest['name'],
                     name_kana: rest['name_kana'],
                     latitude: rest['latitude'],
@@ -105,23 +116,23 @@ namespace :db do
         end
     end
 
-    desc "ドリンク価格のInsertを行う"
-    task :drink_prices => :environment do
+    desc "ドリンクURLのInsertを行う"
+    task :drink_url_insert => :environment do
         require 'csv'
         num = 0
         stores = Store.all
         csvs = []
         CSV.read('csv/drink_url1.csv', headers: false).each do |row|
             csvs << {
-                'id' => row[0],
+                'code' => row[0],
                 'drink_url' => row[6]
             }
         end
 
         stores.each do |store|
             csvs.each do |csv|
-                if store.attributes['store_id'] === csv['id']
-                    store_data_match = Store.find_by(store_id: store.attributes['store_id'])
+                if store.attributes['code'] === csv['code']
+                    store_data_match = Store.find_by(code: store.attributes['code'])
                     store_data_match.drink_url = csv['drink_url']
                     store_data_match.save
                     num += 1
@@ -141,7 +152,7 @@ namespace :db do
             if store.attributes['drink_url'] != ''
                 drink_urls_data << {
                     'drink_url' => store.attributes['drink_url'],
-                    'store_id'  => store.attributes['store_id']
+                    'code'  => store.attributes['code']
                 }
             end
         end
@@ -165,20 +176,21 @@ namespace :db do
         end
 
         # ビールのスクレイピング関数
-        def BeerScraping(store_id, items, beer_name)
+        def BeerScraping(store_code, items, beer_name)
             items.each do |item|
                 productName  = item.css('.menu-term').inner_text.scan(/\S+/)
                 productPrice = item.css('.menu-price').inner_text.scan(/\d[,\d]\d+/)
 
                 beer_name.each do |name|
-                    if productName[0] === name.attributes['beer_name']
+                    if productName[0] === name.attributes['name']
                         if productPrice[0] === nil then
                             break
                         end
-                        productPrice_int = productPrice[0].to_i
+                        productPrice_int = productPrice[0].delete(',').to_i
+                        puts productPrice_int
 
                         beer_price = DrinkPrice.new(
-                            store_id: store_id,
+                            store_code: store_code,
                             drink_id: name.attributes['drink_id'],
                             drink_price: productPrice_int,
                         )
@@ -196,7 +208,6 @@ namespace :db do
             i += 1
             puts "--------------  #{i}   --------------"
             items = IsItems(data['drink_url'])
-            BeerScraping(data['store_id'], items, beer_name)
+            BeerScraping(data['code'], items, beer_name)
         end
     end
-end
