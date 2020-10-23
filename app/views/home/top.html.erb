@@ -177,3 +177,15 @@
         </div>
     </div>
 </div>
+<%  @store_data.each do |item| %>
+    <%=
+        p "IDは#{item['store_id']}で、"
+    %>
+    <%=
+        p "ドリンクのIDは#{item['drink_id']}で、"
+    %>
+    <%=
+        p "そのドリンク価格は#{item['min(drink_price)']}円ですわよ"
+    %>
+    <br>
+<% end %>

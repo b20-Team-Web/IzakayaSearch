@@ -10,25 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_09_042926) do
+ActiveRecord::Schema.define(version: 2020_10_17_141601) do
+
+  create_table "beer_correspondences", force: :cascade do |t|
+    t.string "beer_name"
+    t.integer "drink_id"
+  end
+
+  create_table "drink_prices", force: :cascade do |t|
+    t.string "store_id"
+    t.integer "drink_id"
+    t.integer "drink_price"
+  end
+
+  create_table "drink_types", force: :cascade do |t|
+    t.string "drink_type"
+  end
 
   create_table "drinks", force: :cascade do |t|
     t.string "name"
     t.integer "drink_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "shops", force: :cascade do |t|
+  create_table "stores", force: :cascade do |t|
+    t.string "store_id"
     t.string "name"
-    t.integer "average"
-    t.integer "beer_price"
-    t.string "distance"
-    t.string "content"
+    t.string "name_kana"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.string "url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "image"
+    t.string "drink_url"
+    t.string "image1"
+    t.string "image2"
+    t.string "tel"
+    t.string "opentime"
+    t.string "holiday"
+    t.string "access_line"
+    t.string "access_station"
+    t.string "access_station_exit"
+    t.integer "access_walk"
+    t.string "access_note"
+    t.integer "parking_lots"
+    t.string "pr"
+    t.integer "budget"
+    t.integer "party"
+    t.integer "lunch"
+    t.string "credit_card"
+    t.string "e_money"
   end
 
 end
