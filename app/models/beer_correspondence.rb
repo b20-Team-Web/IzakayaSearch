@@ -1,0 +1,2 @@
+class BeerCorrespondence < ApplicationRecord
+end

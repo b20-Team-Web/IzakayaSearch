@@ -13,27 +13,30 @@
 ActiveRecord::Schema.define(version: 2020_10_17_141601) do
 
   create_table "beer_correspondences", force: :cascade do |t|
-    t.string "beer_name"
+    t.string "name", null: false
     t.integer "drink_id"
+    t.index ["drink_id"], name: "index_beer_correspondences_on_drink_id"
   end
 
   create_table "drink_prices", force: :cascade do |t|
-    t.string "store_id"
+    t.string "store_code", null: false
     t.integer "drink_id"
-    t.integer "drink_price"
+    t.integer "drink_price", null: false
+    t.index ["drink_id"], name: "index_drink_prices_on_drink_id"
   end
 
   create_table "drink_types", force: :cascade do |t|
-    t.string "drink_type"
+    t.string "name", null: false
   end
 
   create_table "drinks", force: :cascade do |t|
-    t.string "name"
-    t.integer "drink_type"
+    t.string "name", null: false
+    t.integer "drink_type_id"
+    t.index ["drink_type_id"], name: "index_drinks_on_drink_type_id"
   end
 
   create_table "stores", force: :cascade do |t|
-    t.string "store_id"
+    t.string "code", null: false
     t.string "name"
     t.string "name_kana"
     t.float "latitude"
@@ -60,4 +63,7 @@ ActiveRecord::Schema.define(version: 2020_10_17_141601) do
     t.string "e_money"
   end
 
+  add_foreign_key "beer_correspondences", "drinks"
+  add_foreign_key "drink_prices", "drinks"
+  add_foreign_key "drinks", "drink_types"
 end
