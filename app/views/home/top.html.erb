@@ -2,8 +2,6 @@
     <%= stylesheet_link_tag 'pc' %>
 <% end %>
 
-<% breadcrumb :top %>
-
 <div class="first_area_pc">
     <div class="top_area_image">
         <div class="top_area_text_oya_box">
@@ -40,7 +38,7 @@
     <div class="content_area">
         <div class="content_pankuzu">
             <div>
-                <%= breadcrumbs separator: " &rsaquo;"%>
+                
             </div>
         </div>
 
@@ -177,6 +175,7 @@
         </div>
     </div>
 </div>
+<!--
 <%  @store_data.each do |item| %>
     <%=
         p "IDは#{item['store_id']}で、"
@@ -188,4 +187,27 @@
         p "そのドリンク価格は#{item['min(drink_price)']}円ですわよ"
     %>
     <br>
+<% end %>
+
+<% @drink_name.each do |name| %>
+    <div>お店ID<%= name['store_code'] %></div>
+    
+<% end %>
+
+
+-->
+
+
+<% @stores_data.each do |store|%>
+    <div>
+        ストアコードは<span><%= store["store_code"] %></span>で、
+        お店の名前は<span><%= store["store_name"] %></span>
+        写真は<span><img src="<%= store["image1"] %>" alt="お店の画像"></span>
+        お酒の種類は
+        <% store["drink_name"].each do |drink| %>
+            <%= drink %>,
+        <% end %>
+        があります。
+    </div>
+
 <% end %>
