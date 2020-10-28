@@ -114,7 +114,8 @@
                                     image_tag("/assets/icons/#{i + 1}.svg")
                                 else
                                     i
-                                end  %>
+                                end  
+                                %>
                             </div>
                             <div>
                                 <a href="#">北の味紀行と地酒　北海道　八王子駅前店</a>
@@ -197,7 +198,7 @@
 
 -->
 
-
+<!--
 <% @stores_data.each do |store|%>
     <div>
         ストアコードは<span><%= store["store_code"] %></span>で、
@@ -211,3 +212,6 @@
     </div>
 
 <% end %>
+-->
+
+<%= @stores_data %>

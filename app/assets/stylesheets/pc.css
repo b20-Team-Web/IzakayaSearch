@@ -26,8 +26,8 @@
 
 .top_area_image div {
     font-weight: bold;
-    color: #FFC700;
-    text-shadow:1px 1px 0 black,-1px 1px 0 black,1px -1px 0 black,-1px -1px 0 black;
+    color: #FFBE39;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.45), -1px 1px 0 rgba(0, 0, 0, 0.45), 1px -1px 0 rgba(0, 0, 0, 0.45), -1px -1px 0 rgba(0, 0, 0, 0.45);
 }
 
 .top_area_text_oya_box {
@@ -241,6 +241,10 @@
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+.item_ilc_tag span {
+    margin: 0 4px 4px 0;
 }
 
 .item_shop_des {
