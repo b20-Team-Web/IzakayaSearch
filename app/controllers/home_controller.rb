@@ -4,10 +4,41 @@ class HomeController < ApplicationController
   def top
     # @shop = Shop.all.order(beer_price: "DESC")
     # @beer_price = Shop.minimum(:beer_price)
+    @beers = ['ザ・プレミアム・モルツ', 'アサヒビール', 'よなよなエール', 'ビール', '生ビール']
   end
 
   def show
     # @shop = Shop.find_by(id: params[:id])
+    @is_beers = [
+      {
+        'name'   => 'ザ・プレミアム・モルツ',
+        'isBeer' => true,
+      },
+      {
+        'name'   => 'アサヒビール',
+        'isBeer' => true,
+      },
+      {
+        'name'   => 'コロナビール',
+        'isBeer' => false,
+      },
+      {
+        'name'   => 'よなよなエール',
+        'isBeer' => true,
+      },
+      {
+        'name'   => 'ノンアルコールビール',
+        'isBeer' => false,
+      },
+      {
+        'name'   => 'ビール',
+        'isBeer' => true,
+      },
+      {
+        'name'   => '生ビール',
+        'isBeer' => true,
+      },
+    ]
   end
 
   private
