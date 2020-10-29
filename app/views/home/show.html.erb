@@ -1,28 +1,23 @@
 <div class="show_box">
     <div class="show_midashi">
         <div class="content_pankuzu">
-            <div>
-                <% breadcrumb :show %>
-                <%= breadcrumbs separator: " &rsaquo;" %>
-            </div>
+            
         </div>
         <div>
-            <h2>店名店名店名店名店名店名店名店名店名</h2>
+            <h2><%= @store[0]["store_name"] %></h2>
         </div>
         <hr>
     </div>
 
     <div class="show_images">
         <div class="show_image_main">
-            <%= image_tag("/assets/item_image/2.jpg") %>
+            <img src="<%= @store[0]["image1"] %>" alt="<%= @store[0]["store_name"] %>の画像1">
         </div>
-        <div class="show_image_sub">
-            <% 4.times do |i| %>
-            <div>
-                <%= image_tag("/assets/item_image/2.jpg") %>
-            </div>
-            <% end %>
-        </div>
+        <% unless @store[0]["image2"].empty? %>
+        <div class="show_image_main">
+            <img src="<%= @store[0]["image2"] %>" alt="<%= @store[0]["store_name"] %>の画像1">
+        </div>  
+        <% end %>
     </div>
 
     <hr class="cheap_beer_top">
@@ -32,10 +27,10 @@
         </div>
         <div class="cheap_beer_right">
             <div class="cheap_beer_name">
-                サッポロなんちゃらビール
+                <%= @store[0]["drink_name"] %>
             </div>
             <div class="cheap_beer_price">
-                888円
+                <%= @store[0]["min(drink_price)"] %>円
             </div>
         </div>
     </div>
@@ -46,15 +41,7 @@
             <b>このお店のお酒タグ</b>
         </div>
         <div class="tag_box"><!-- ループを回そう -->
-            <span class="badge badge-info">すぷもーに</span>
-            <span class="badge badge-info">しゃんでぃがふ</span>
-            <span class="badge badge-info">すくりゅーどらいばー</span>
-            <span class="badge badge-info">もひーと</span>
-            <span class="badge badge-info">ぶらっどめありー</span>
-            <span class="badge badge-info">まるがりーた</span>
-            <span class="badge badge-info">ぴにゃこらーだ</span>
-            <span class="badge badge-info">もすこみゅーる</span>
-            <span class="badge badge-info">XYZ</span>
+        
         </div>
     </div>
     <hr class="tag_bottom">
@@ -64,13 +51,13 @@
         </div>
         <hr>
         <div><!-- ループで回す -->
-        <% 5.times do |i| %>
+        <% @drink.each do |drink| %>
             <div class="beer_type_item">
                 <div class="beer_name">
-                    サッポロ生ビール　黒ラベル
+                    <%= drink["name"] %>
                 </div>
                 <div class="beer_price">
-                    300円
+                    <%= drink["price"] %>円
                 </div>
             </div>
             <hr>
@@ -78,27 +65,94 @@
         </div>
     </div>
     <hr class="detail_info_top">
-    <div class="ditail_info">
+    <div class="detail_info">
         <div>
             <h2>店舗情報</h2>
         </div>
-        <hr class="ditail_info_hr">
-        <% data_type =["店名","平均価格","住所","アクセス","電話番号","営業時間"] %>
-        <% 6.times do |i| %>
-        <div class="ditail_info_item">
-            <div class="ditail_info_type">
-                <div>
-                    <%= data_type[i] %>
+        <hr class="detail_info_hr">
+        <div class="detail_info_item">
+            <div class="detail_info_row">
+                <div class="detail_info_type">
+                    <div>
+                        店名
+                    </div>
+                </div>
+                <div class="detail_info_data">
+                    <div>
+                        <%= @store[0]["store_name"] %>
+                    </div>
                 </div>
             </div>
-            <div class="ditail_info_data">
-                <div>
-                    何かしらの情報！
+            <div class="detail_info_row">
+                <div class="detail_info_type">
+                    <div>
+                        平均価格
+                    </div>
+                </div>
+                <div class="detail_info_data">
+                    <div>
+                        <%= @store[0]["budget"].to_s(:delimited) %>円
+                    </div>
+                </div>
+            </div>
+            <div class="detail_info_row">
+                <div class="detail_info_type">
+                    <div>
+                        住所
+                    </div>
+                </div>
+                <div class="detail_info_data">
+                    <div>
+                        <%= @store[0]["address"] %>
+                    </div>
+                </div>
+            </div>
+            <div class="detail_info_row">
+                <div class="detail_info_type">
+                    <div>
+                        アクセス
+                    </div>
+                </div>
+                <div class="detail_info_data">
+                    <div>
+                        <%= @store[0]["access_line"]+@store[0]["access_station"] %>徒歩<%= @store[0]["access_walk"] %>分
+                    </div>
+                </div>
+            </div>
+            <div class="detail_info_row">
+                <div class="detail_info_type">
+                    <div>
+                        電話番号
+                    </div>
+                </div>
+                <div class="detail_info_data">
+                    <div>
+                        <%= @store[0]["tel"] %>
+                    </div>
+                </div>
+            </div>
+            <div class="detail_info_row">
+                <div class="detail_info_type">
+                    <div>
+                        アクセス
+                    </div>
+                </div>
+                <div class="detail_info_data">
+                    <div>
+                        <%= @store[0]["opentime"] %>
+                    </div>
                 </div>
             </div>
         </div>
-        <hr class="ditail_info_hr">
-        <% end %>
     </div>
 
+</div>
+<div>
+<p>@drink</p>
+<%= @drink %>
+</div>
+
+<div>
+<p>@store</p>
+<%= @store %>
 </div>

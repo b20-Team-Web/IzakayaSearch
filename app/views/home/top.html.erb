@@ -21,14 +21,14 @@
                     最安
                 </div>
                 <div class="pc_fontsize_large">
-                    888
+                    <%= @stores_data[0]["drink_price"] %>
                 </div>
                 <div class="pc_fontsize_largesmall">
                     円〜
                 </div>
             </div>
             <div class="pc_fontsize_largesmall">
-                JR八王子駅から徒歩5分
+                <%= @stores_data[0]["access_line"] + @stores_data[0]["access_station"] %>徒歩<%= @stores_data[0]["access_walk"] %>分
             </div>
         </div>
     </div>
@@ -100,25 +100,27 @@
                     <h2>八王子周辺でビールが安い順</h2>
                 </div>
                 <hr>
-                <% 10.times do |i| %>
+                <% i = 0 %>
+                <% @stores_data.each do |store| %>
                 <!-- お店情報　ここから -->
                 <div class="ranking_box_oya">
                     <div class="ranking_box_image">
-                        <%= image_tag("/assets/item_image/2.jpg") %>
+                        <img src="<%= store["image1"] %>" alt="<%= store["store_name"] %>の写真">
                     </div>
                     <div class="ranking_item_info">
                         <div class="ranking_item_top">
                             <div class="ranking_rank">
                                 <%=
-                                if i < 3 then
-                                    image_tag("/assets/icons/#{i + 1}.svg")
+                                i += 1
+                                if i < 4 then
+                                    image_tag("/assets/icons/#{i}.svg")
                                 else
                                     i
                                 end  
                                 %>
                             </div>
                             <div>
-                                <a href="#">北の味紀行と地酒　北海道　八王子駅前店</a>
+                                <%= link_to(store["store_name"], "/show/#{store["store_code"]}") %>
                             </div>
                         </div>
                         <div class="ranking_item_middle">
@@ -130,42 +132,31 @@
                                         </span>
                                     </div>
                                     <div>
-                                        八王子駅徒歩〇〇分
+                                        <%= store["access_line"] + store["access_station"] %>徒歩<%= store["access_walk"] %>分
                                     </div>
                                 </div>
                                 <div class="item_ave_info">
                                     <div>
-                                        <span class="material-icons orange">
-                                            brightness_7
+                                        <span class="material-icons">
+                                        attach_money
                                         </span>
                                     </div>
                                     <div>
-                                        1000円〜
-                                    </div>
-                                    <div>
-                                        <span class="material-icons dimgray">
-                                            brightness_2
-                                        </span>
-                                    </div>
-                                    <div>
-                                        3000円〜
+                                        <%= store["budget"].to_s(:delimited) %>円~
                                     </div>
                                 </div>
                             </div>
                             <div class="item_price_info">
-                                <div>888円</div>
+                                <div><%= store["drink_price"].to_s(:delimited) %>円</div>
                             </div>
                         </div>
                         <div class="item_ilc_tag">
-                            <span class="badge badge-info">お酒タグ１</span>
-                            <span class="badge badge-info">お酒タグ２</span>
-                            <span class="badge badge-info">お酒タグ3</span>
-                            <span class="badge badge-info">よなよなエール</span>
-                            <span class="badge badge-info">Heineken</span>
-                            <span class="badge badge-info">すぷもーに</span>
+                        <% store["drink_name"].each do |name| %>
+                            <span class="badge badge-info"><%= name %></span>
+                        <% end %>
                         </div>
                         <div class="item_shop_des">
-                            <div>お店説明文お店説明文お店説明文お店説明文</div>
+                            <div><%= store["pr"] %></div>
                         </div>
                     </div>
                 </div>
@@ -176,42 +167,3 @@
         </div>
     </div>
 </div>
-<!--
-<%  @store_data.each do |item| %>
-    <%=
-        p "IDは#{item['store_id']}で、"
-    %>
-    <%=
-        p "ドリンクのIDは#{item['drink_id']}で、"
-    %>
-    <%=
-        p "そのドリンク価格は#{item['min(drink_price)']}円ですわよ"
-    %>
-    <br>
-<% end %>
-
-<% @drink_name.each do |name| %>
-    <div>お店ID<%= name['store_code'] %></div>
-    
-<% end %>
-
-
--->
-
-<!--
-<% @stores_data.each do |store|%>
-    <div>
-        ストアコードは<span><%= store["store_code"] %></span>で、
-        お店の名前は<span><%= store["store_name"] %></span>
-        写真は<span><img src="<%= store["image1"] %>" alt="お店の画像"></span>
-        お酒の種類は
-        <% store["drink_name"].each do |drink| %>
-            <%= drink %>,
-        <% end %>
-        があります。
-    </div>
-
-<% end %>
--->
-
-<%= @stores_data %>
