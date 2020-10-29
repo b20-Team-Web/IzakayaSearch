@@ -18,7 +18,7 @@
 
 .top_area_image {
     display: flex;
-    background-image: url("/assets/top_image_pc.jpg");
+    background-image: url("top_image_pc.jpg");
     background-size: cover;
     width: 80%;
 }
@@ -120,7 +120,9 @@
 }
 
 .search_sort div{
-    height: 6vw;
+    width: 200px;
+    height: 35px;
+
 }
 
 .search_name {

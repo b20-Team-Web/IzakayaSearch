@@ -54,10 +54,16 @@
                     <div>並び順</div>
                 </div>
                 <div class="search_sort">
-                    <%= link_to "平均価格が安い順", {controller: "home", action: "top", sort: "budget"}, method: :get%>
-                    <div class="badge badge-warning">
-                        <%= link_to("ビール一杯の安い順", top_path, class: 'hoge')  %>
-                    </div>
+                    <%= link_to "平均価格が安い順", {controller: "home", action: "top", sort: "budget"}, method: :get do%>
+                        <div class="badge badge-warning">
+                            平均価格が安い順
+                        </div>
+                    <% end %>
+                    <%= link_to "ビール一杯の安い順", {controller: "home", action: "top"}, method: :get do %>
+                        <div class="badge badge-warning">
+                            ビール一杯の安い順
+                        </div>
+                    <% end %>
                 </div>
                 <div class="search_midashi">
                     <div class="search_midashi_icon">
@@ -103,7 +109,7 @@
                                 <%=
                                 i += 1
                                 if i < 4 then
-                                    image_tag("/assets/icons/#{i}.svg")
+                                    image_tag("icons/#{i}.svg")
                                 else
                                     i
                                 end  
