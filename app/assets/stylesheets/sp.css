@@ -3,22 +3,14 @@ hr {
     margin: 0;
     border-top: 1px solid black;
 }
-
 ul {
     list-style: none;
     width: 100%;
 }
-
 .wrap {
     overflow-x: hidden;
     font-family: 'Noto Sans', sans-serif;
 }
-
-.footer {
-    background-color: #D3D3D3;
-    height: 15vw;
-}
-
 .logo_area {
     text-align: center;
     display: flex;
@@ -26,374 +18,199 @@ ul {
     align-items: center;
     height: 50px;
 }
-
 .logo_area img {
     height: 40px;
 }
-
-.top_area {
+.topArea {
     display: flex;
     flex-direction: column;
-    background-image: url("/assets/top_image.png");
-    height: 62vw;
-    color: wheat;
+    background-image: url("top_image_sp.jpg");
+    background-size: auto;
+    height: 270px;
+    padding-left: 16px;
+    font-weight: bold;
+    font-size: 15px;
 }
-
-.top_area_box {
-    margin: 9vw 0 0 6vw;
+.topArea__title {
+    line-height: 1.8em;
+    letter-spacing: .1em;
+    margin-top: 36px;
+    color: #fff;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.45), -1px 1px 0 rgba(0, 0, 0, 0.45), 1px -1px 0 rgba(0, 0, 0, 0.45), -1px -1px 0 rgba(0, 0, 0, 0.45);
 }
-
-.top_area_box_head {
-    display: flex;
-    align-items: flex-end;
-    color: white;
-}
-
-.top_area_box_head_big {
+.topArea__titleRegion {
     font-size: 30px;
+    margin-right: 6px;
 }
-
-.top_area_box_head_small {
-    font-size: 24px;
-}
-
-.top_area_box_ex {
-    font-size: 14px;
-    color: white;
-}
-
-.top_area_box_middle {
-    display: flex;
-    margin-top: 28px;
-    align-items: flex-end;
-    color: #ffee58;
-}
-
-.top_area_box_middle_big {
-    font-size: 68px;
-}
-
-.top_area_box_middle_small {
+.topArea__price {
+    color: #FFF500;
     font-size: 20px;
+    margin-top: 16px;
+    letter-spacing: .1em;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.45), -1px 1px 0 rgba(0, 0, 0, 0.45), 1px -1px 0 rgba(0, 0, 0, 0.45), -1px -1px 0 rgba(0, 0, 0, 0.45);
 }
-
-.top_area_box_bottom {
-    font-size: 12px;
-    margin: 10px 0 0 50px;
-    color: white;
+.topArea__priceEmphasis {
+    font-size: 66px;
 }
-
-.sub_title {
-    margin: 20px 0 0 10px;
-    border-left: 7px solid #ffee58;
+.topArea__priceAccess {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.9em;
+}
+.sectionHeader {
+    margin: 16px 0;
+    border-left: 7px solid #FFEE58;
     line-height: 35px;
-    font-size: 5vw;
-}
-
-.sub_title b{
-    margin-left: 10px;
-}
-
-.contentList {
-    display: flex;
-    align-items: center; /* 縦方向中央揃え */
-    justify-content: center; /* 横方向中央揃え */
-    width: 90%;
-    margin: 16px;
-}
-
-.contentList_box {
-    margin: 10px 0;
-    border: 1px solid;
-    border-color: gray;
-    border-radius: 10px;
-    box-shadow: 0px 2px 3px grey;
-    height: 100%;
-}
-
-.contentList_image img {
-    border: 1px solid;
-    border-color: gray;
-    box-sizing: border-box;
-    border-radius: 10px;
-    width: 100%;
-}
-
-.contentList_inside {
-    display: flex;
-    flex-direction: row;
-    margin-top: 10px;
-    width: 100%;
-}
-
-.contentList_inside_box {
-    width: 100%;
-}
-
-.contentList_inside_icon {
-    margin: 4%;
-    display: flex; 
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center;
-}
-
-.contentList_inside_column {
-    display: flex;
-    flex-direction: column;
-    width: 52%;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.contentList_inside_column div {
-    margin: 5px 0 ;
-}
-
-.contentList_inside_column b {
-    margin-left: 5px;
-}
-
-.contentList_inside_name {
-    font-size: 5vw;
-    width: 85%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.contentList_inside_row {
-    display: flex;
-}
-
-.contentList_inside_column {
-    font-size: 3vw;
-}
-
-.contentList_inside_column__average span {
-    font-size: 1.5em;
-}
-
-.contentList_inside_row_price {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center;
-    margin-top: 10px;
-    width: 40%;
-}
-
-.contentList_inside_row_price b {
-    color: red;
-    font-size: 8vw;
-}
-
-.walk_fa_size {
-    font-size: 1.5em;
-}
-
-.ave_fa_size {
-    font-size: 1.2em;
-}
-
-/* show.html.erb css */
-
-.show_title {
-    display: flex;
-    margin: 18px 0 10px 15px;
     font-size: 18px;
 }
-
-.show_hr {
-    position: relative;
-    left: 15px;
-    width: 90%;
-    border-top: 1px solid gray;
+.section__title {
+    margin-left: 12px;
 }
-
-/*slick setting*/
-
-.slider {
-    margin: 20px auto;
+.topAreaList {
+    padding: 0 16px;
+}
+.topAreaListCard {
+    /* height: 260px; */
+    border-radius: 10px;
+    margin-bottom: 16px;
+    box-shadow: 0px 2px 3px grey;
+}
+.topAreaListCardImage {
+    height: 160px;
+}
+.topAreaListCardImage > img {
+    border-radius: 10px;
+    height: 100%;
     width: 100%;
 }
-
-.slider div {
+.topAreaListCardInfo {
+    display: flex;
+    padding: 12px 16px 4px;
+    letter-spacing: .03em;
+}
+.topAreaListCardInfo__rank {
     display: flex;
     align-items: center;
 }
-
-.slider img {
-    margin: 0 auto;
-    max-height: 250px;
-    width: 90%;
-    object-fit: cover;
+.topAreaListCardInfo__wrapper {
+    margin-left: 12px;
 }
-
-.slick-prev:before,
-.slick-next:before {
-    color: #000;
+.topAreaListCardInfo__title {
+    font-size: 16px;
+    color: blue;
+    font-weight: 600;
+    text-decoration: underline;
 }
-
-.show_contentList {
+.topAreaListCardInfo__detail {
     display: flex;
-    justify-content: center; 
-    align-items: center;
+    margin-top: 6px;
 }
-
-.show_contentList_box {
-    flex-direction: column;
-    margin: 16px;
+.topAreaListCardInfo__detailAccess {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.8em;
+    margin-right: 48px;
 }
-
-.show_contentList_box_beer {
+.topAreaListCardInfo__detailAccessIcon {
+    margin-right: 6px;
+}
+.topAreaListCardInfo__detailPrice {
     display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    letter-spacing: 1.5vw;
-}
-
-.show_contentList_box_beer_text {
-    font-size: 25px;
-    margin-right: 30px;
-}
-
-.show_contentList_box_beer_price {
-    font-size: 48px;
+    font-size: 28px;
     color: red;
+    font-weight: 700;
+    align-self: center;
 }
-
-.show_contentList_box_beer_price_small {
-    font-size: 0.8em;
+.topAreaListCardInfo__tag {
+    font-size: 10px;
+    margin-top: 4px;
 }
-
-.show_contentList_box_info {
-    margin: 20px 0 0 20px;
+.topAreaListCardInfo__tagItem {
+    display: inline-block;
+    padding: 4px;
+    margin: 0 1px 8px 0;
+    background-color: #AFCFFF;
+    border-radius: 4px;
 }
-
-.show_contentList_box_info div {
-    margin-bottom: 10px;
+.storeDetail {
+    padding: 8px 16px 16px;
 }
-
-.show_contentList_box_info_dis {
-    margin-left: 20px;
+.storeDetail__title {
+    font-size: 18px;
+    padding: 8px 0;
+    border-bottom: 1px solid #959595;
 }
-
-.show_contentList_box_info_ave {
-    margin-left: 20px;
+.storeDetail__image {
+    margin: 8px auto;
+    width: 200px;
+    height: 200px;
 }
-
-.show_contentList_box_items {
-    margin-top: 20px;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+.storeDetail__image > img {
+    width: 100%;
+    height: 100%;
 }
-
-.show_contentList_box_items div { 
-    display: flex;
-    border: 1px solid;
-    border-color: gray;
-    border-radius: 10px;
-    width: 140px;
-    height: 35px;
-    align-items: center;
-    justify-content: center;
-}
-
-.show_contentList_box_items_map {
-    margin-right: 20px;
-}
-
-.show_contentList_box_items_map img {
-    margin-left: 45px;
-}
-
-.show_contentList_box_items_map span {
-    margin-left: 30px;
-}
-
-.show_contentList_box_items_grnb {
-    margin-left: 20px;
-}
-
-.show_contentList_box_items_grnb img {
-    height: 28px;
-    margin-left: 45px;
-}
-
-.show_contentList_box_items_grnb span {
-    margin-left: 35px;
-}
-
-.ad_space {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    height: 40vw;
-    background-color: gray;
-    margin-top: 18px;
-}
-
-.show_menuList {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 3vw;
-}
-
-.show_menuList_box {
-    margin: 16px;
+.storeDetailInfo {
     width: 90%;
+    margin: auto;
 }
-
-.show_menuList_item {
+.storeDetailInfo__price {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px 0;
+    letter-spacing: .1em;
+}
+.storeDetailInfo__priceEmphasis {
+    font-size: 40px;
+    color: red;
+    vertical-align: sub;
+    margin-left: 8px;
+}
+.storeDetailInfo__access {
+    margin: 8px 0;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: normal;
+}
+.storeDetailInfo__accessIcon {
+    margin-right: 6px;
+}
+.storeDetailInfo__link {
+    margin: 16px 0;
+}
+.storeDetailInfo_linkItem {
     display: flex;
-    flex-direction: column;
-}
-
-.show_menuList_item_beer {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-}
-
-.show_menuList_item_beer div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 13vw;
-}
-
-.show_menuList_item_beer_name {
-    background-color: rgb(232, 232, 232);
-    border: 1px solid rgb(215, 215, 215);
-    width: 35%;
-}
-
-.show_menuList_item_beer_bool {
-    border: 1px solid rgb(215, 215, 215);
-    width: 65%;
-}
-
-.show_backtoPage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 30vw;
-}
-
-.show_backtoPage_item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 16px 20px;
     border: 1px solid black;
-    width: 50%;
-    height: 45%;
-    border-radius: 35px;
+    margin: 12px 0;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-around;
+}
+.storeDetailInfo_linkItem > img {
+    margin-right: 12px;
+}
+.storeDetailTable {
+    border-collapse:collapse;
+    margin: 0 auto;
+    font-size: 14px;
+}
+td,th{
+    border: 1px solid #ccc;
+    padding: 16px 32px;
+}
+th{
+    background:#EFEFEF;
+}
+.linkToTop {
+    margin: 16px 56px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 16px 20px;
+    border: 1px solid black;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }

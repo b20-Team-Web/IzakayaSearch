@@ -1,88 +1,46 @@
-
-<div class="show_title">
-    <h1>hogehogehoge</h1>
-</div>
-<hr class="show_hr">
-<div>
-    <ul class="slider scroll_images" id="img">
-    <% for i in 1..4 do %>
-        <li>
-            <div><%= image_tag("/assets/show_images/2/#{i}.jpg",alt:"お店画像") %></div>
-        </li>
-    <% end %>
-        <li>
-            <div><%= image_tag("/assets/item_image/1.jpg" , alt:"横長画像") %></div>
-        </li>
-    </ul>
-</div>
-
-<div class="show_contentList">
-    <ul>
-        <li class="show_contentList_box">
-            <div class="show_contentList_box_beer">
-                <div class="show_contentList_box_beer_text">
-                    <b>ビール最安</b>
-                </div>
-                <div class="show_contentList_box_beer_price">
-                    <b class="show_contentList_box_beer_price_small">¥</b><b>300~</b>
-                </div>
-            </div>
-            <div class="show_contentList_box_info">
-                <div>
-                    <i class="fas fa-walking walk_fa_size"></i><b class="show_contentList_box_info_dis">ＪＲ 八王子駅 徒歩2分</b>
-                </div>
-                <div>
-                    <i class="fas fa-utensils ave_fa_size"></i><b class="show_contentList_box_info_ave">¥300円~</b>
-                </div>
-            </div>
-            <div class="show_contentList_box_items">
-                <div class="show_contentList_box_items_map">
-                    <%= image_tag("/assets/icons/google_map_icon.svg") %>
-                    <span class="material-icons">chevron_right</span>
-                </div>
-                <div class="show_contentList_box_items_grnb">
-                    <%= image_tag("/assets/icons/gurunabi.jpg") %><span class="material-icons">chevron_right</span>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="ad_space">
-    <div>広告スペース</div>
-</div>
-<div class="sub_title">
-    <b>取り扱っているビールの種類</b>
-</div>
-<div class="show_menuList">
-    <ul class="show_menuList_box">
-        <li class="show_menuList_item">
-            <div class="show_menuList_item_beer">
-                <div class="show_menuList_item_beer_name">アサヒ</div>
-                <div class="show_menuList_item_beer_bool">○</div>
-            </div>
-            <div class="show_menuList_item_beer">
-                <div class="show_menuList_item_beer_name">キリン</div>
-                <div class="show_menuList_item_beer_bool">○</div>
-            </div>
-            <div class="show_menuList_item_beer">
-                <div class="show_menuList_item_beer_name">一番搾り</div>
-                <div class="show_menuList_item_beer_bool">○</div>
-            </div>
-            <div class="show_menuList_item_beer">
-                <div class="show_menuList_item_beer_name">プレミアムモルツ</div>
-                <div class="show_menuList_item_beer_bool">○</div>
-            </div>
-            <div class="show_menuList_item_beer">
-                <div class="show_menuList_item_beer_name">orion</div>
-                <div class="show_menuList_item_beer_bool">○</div>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="show_backtoPage">
-    <div class="show_backtoPage_item">
-        <b>一覧に戻る</b>
+<section class="storeDetail">
+    <div class="storeDetail__title">
+        <h2>個室居酒屋 淡路島へ渡れ 八王子店</h1>
     </div>
-</div>
+    <div class="storeDetail__image">
+        <%= image_tag("show_images/2/1.jpg", alt:"お店画像") %>
+    </div>
+    <div class="storeDetailInfo">
+        <p class="storeDetailInfo__price">ビール最安値<span class="storeDetailInfo__priceEmphasis">¥1,390~</span></p>
+        <div class="storeDetailInfo__access">
+            <p><i class="fas fa-utensils storeDetailInfo__accessIcon"></i>平均予算<span><%= 4000.to_s(:delimited) %></span>円</p>
+            <p><i class="fas fa-walking storeDetailInfo__accessIcon"></i>JR八王子駅 徒歩2分</p>
+        </div>
+        <div class="storeDetailInfo__link">
+            <a href="https://www.google.com/maps?q=35.658226,139.338186" class="storeDetailInfo_linkItem">
+                <%= image_tag("icons/google_map.svg") %>
+                <p>Google Map</p>
+                <span class="material-icons">chevron_right</span>
+            </a>
+            <a href="https://r.gnavi.co.jp/m6nvb4y50000/menu3/" class="storeDetailInfo_linkItem">
+                <%= image_tag("icons/gurunabi.svg") %>
+                <p>ぐるなび</p>
+                <span class="material-icons">chevron_right</span>
+            </a>
+        </div>
+    </div>
+    <h2 class="sectionHeader">
+        <p class="section__title">八王子駅周辺で最もビールが安いお店</p>
+    </h2>
 
-<%= javascript_pack_tag 'slick-custom.js' %> <!-- pack_tagの動作確認 -->
+    <table class="storeDetailTable">
+        <% @is_beers.each do |beer| %>
+            <tr>
+                <th><%= beer['name'] %></th>
+                <% if beer['isBeer'] === true then %>
+                    <td>○</td>
+                <% else %>
+                    <td>✕</td>
+                <% end %>
+            </tr>
+        <% end %>
+    </table>
+</section>
+<a href="/" class="linkToTop">
+    <p>一覧に戻る</p>
+</a>

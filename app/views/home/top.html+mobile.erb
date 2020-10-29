@@ -1,69 +1,48 @@
-<% content_for :css do %>
-    <%= stylesheet_link_tag 'sp' %>
-<% end %>
-<div class="top_area">
-    <div class="top_area_box">
-        <div class="top_area_box_head">
-            <div class="top_area_box_head_big">
-                <b>八王子駅</b>
-            </div>
-            <div class="top_area_box_head_small">
-                <b>周辺</b>
-            </div>
-        </div>
-        <div class="top_area_box_ex">
-            <b>で安くビールがのめるお店</b>
-        </div>
-        <div class="top_area_box_middle">
-            <div class="top_area_box_middle_small">
-                <b>最安</b>
-            </div>
-            <div class="top_area_box_middle_big">
-                <b>390</b>
-            </div>
-            <div>
-                <b>円~</b>
-            </div>
-        </div>
-        <div class="top_area_box_bottom">
-            <b>八王子駅北口徒歩5分</b>
-        </div>
+<div class="topArea">
+    <div class="topArea__title">
+        <p><span class="topArea__titleRegion">八王子駅</span>周辺</p>
+        <p>で安くビールが飲めるお店</p>
+    </div>
+    <div class="topArea__price">
+        <p>最安<span class="topArea__priceEmphasis">390</span>円〜</p>
+        <p class="topArea__priceAccess">八王子駅北口徒歩５分</p>
     </div>
 </div>
-<div class="sub_title">
-    <b>八王子駅周辺で最もビールが安いお店</b>
-</div>
-<% 3.times do |i| %>
-    <div class="contentList">
-        <ul>
-            <li class="contentList_box">
-                <div class="contentList_image">
-                    <img src="/assets/item_image/1.jpg">
-                </div>
-                <div class="contentList_inside">
-                    <div class="contentList_inside_icon"><!-- ランキング順位の部分 -->
-                        <%= image_tag("/assets/icons/#{i + 1}") %>
+<section class="topAreaList">
+    <h2 class="sectionHeader">
+        <p class="section__title">八王子駅周辺で最もビールが安いお店</p>
+    </h2>
+    <ul>
+        <% 3.times do |i| %>
+            <li class="topAreaListCard">
+                <%= link_to '/show/1' do %>
+                    <div class="topAreaListCardImage">
+                        <%= image_tag("item_image/1.jpg") %>
                     </div>
-                    <div class="contentList_inside_box">
-                        <div class="contentList_inside_name">
-                            <%= link_to("個室居酒屋 淡路島へ渡れ 八王子店","/show_mobile /1") %>
+                    <div class="topAreaListCardInfo">
+                        <div class="topAreaListCardInfo__rank">
+                            <%= image_tag("icons/#{i + 1}.svg") %>
                         </div>
-                        <div class="contentList_inside_row">
-                            <div class="contentList_inside_column">
-                                <div class="contentList_inside_column__distance">
-                                    <i class="fas fa-walking walk_fa_size"></i><b>ＪＲ 八王子駅 徒歩2分</b>
+                        <div class="topAreaListCardInfo__wrapper">
+                            <h4 class="topAreaListCardInfo__title">個室居酒屋 淡路島へ渡れ 八王子店</h4>
+                            <div class="topAreaListCardInfo__detail">
+                                <div class="topAreaListCardInfo__detailAccess">
+                                    <p><i class="fas fa-walking topAreaListCardInfo__detailAccessIcon"></i>JR八王子駅 徒歩2分</p>
+                                    <p><i class="fas fa-utensils topAreaListCardInfo__detailAccessIcon"></i>平均予算<span><%= 4000.to_s(:delimited) %></span>円</p>
                                 </div>
-                                <div class="contentList_inside_column__average">
-                                    <i class="fas fa-utensils ave_fa_size"></i><b>平均予算<span>3,500</span>円</b>
+                                <div class="topAreaListCardInfo__detailPrice">
+                                    <p>320円</p>
                                 </div>
                             </div>
-                            <div class="contentList_inside_row_price">
-                                <b>¥300円~</b>
-                            </div>
+                            <ul class="topAreaListCardInfo__tag">
+                                <% @beers.each do |beer| %>
+                                    <li class="topAreaListCardInfo__tagItem"><%= beer %></li>
+                                <% end %>
+                            </ul>
                         </div>
                     </div>
-                </div>
+                <% end %>
             </li>
-        </ul>
-    </div>
-<% end %>
+        <% end %>
+    </ul>
+</section>

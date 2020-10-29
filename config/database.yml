@@ -22,6 +22,4 @@ test:
 
 production:
   <<: *default
-  database: IzakayaSearch
-  username: root
-  password: password
+  database: db/production.sqlite3
