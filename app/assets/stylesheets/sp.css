@@ -30,7 +30,7 @@ ul {
 .topArea {
     display: flex;
     flex-direction: column;
-    background-image: image-url("top_image_sp.jpg");
+    background-image: url("top_image_sp.jpg");
     background-size: auto;
     height: 270px;
     padding-left: 16px;
