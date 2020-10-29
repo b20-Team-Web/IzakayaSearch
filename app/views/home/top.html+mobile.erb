@@ -17,11 +17,11 @@
             <li class="topAreaListCard">
                 <%= link_to '/show/1' do %>
                     <div class="topAreaListCardImage">
-                        <img src="/assets/item_image/1.jpg">
+                        <%= image_tag("item_image/1.jpg") %>
                     </div>
                     <div class="topAreaListCardInfo">
                         <div class="topAreaListCardInfo__rank">
-                            <%= image_tag("/assets/icons/#{i + 1}") %>
+                            <%= image_tag("icons/#{i + 1}") %>
                         </div>
                         <div class="topAreaListCardInfo__wrapper">
                             <h4 class="topAreaListCardInfo__title">個室居酒屋 淡路島へ渡れ 八王子店</h4>
