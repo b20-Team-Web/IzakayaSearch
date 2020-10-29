@@ -211,3 +211,4 @@ namespace :db do
             BeerScraping(data['code'], items, beer_name)
         end
     end
+end
