@@ -1,0 +1,167 @@
+
+
+<div class="first_area_pc">
+    <div class="top_area_image">
+        <div class="top_area_text_oya_box">
+            <div class="top_area_text_ko_1">
+                <div class="pc_fontsize_normal">
+                    八王子駅
+                </div>
+                <div class="pc_fontsize_small">
+                    周辺
+                </div>
+            </div>
+            <div class="pc_fontsize_small">
+                で安くビールが飲めるお店<!-- 変数に置き換える -->
+            </div>
+            <div class="top_area_text_ko_2">
+                <div class="pc_fontsize_largesmall">
+                    最安
+                </div>
+                <div class="pc_fontsize_large">
+                    <%= @stores_data[0]["drink_price"] %>
+                </div>
+                <div class="pc_fontsize_largesmall">
+                    円〜
+                </div>
+            </div>
+            <div class="pc_fontsize_largesmall">
+                <%= @stores_data[0]["access_line"] + @stores_data[0]["access_station"] %>徒歩<%= @stores_data[0]["access_walk"] %>分
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="first_area_pc">
+    <div class="content_area">
+        <div class="content_pankuzu">
+            <div>
+                
+            </div>
+        </div>
+
+        <!-- 追従メニュー -->
+        <div class="content_main_items">
+            <div class="content_search">
+                <div class="search_midashi">
+                    <div class="search_midashi_icon">
+                        <span class="material-icons">
+                            done
+                        </span>
+                    </div>
+                    <div>並び順</div>
+                </div>
+                <div class="search_sort">
+                    <%= link_to "平均価格が安い順", {controller: "home", action: "top", sort: "budget"}, method: :get do%>
+                        <div class="badge badge-warning">
+                            平均価格が安い順
+                        </div>
+                    <% end %>
+                    <%= link_to "ビール一杯の安い順", {controller: "home", action: "top"}, method: :get do %>
+                        <div class="badge badge-warning">
+                            ビール一杯の安い順
+                        </div>
+                    <% end %>
+                </div>
+                <div class="search_midashi">
+                    <div class="search_midashi_icon">
+                        <span class="material-icons">
+                            done
+                        </span>
+                    </div>
+                    <div>ビール名で検索</div>
+                </div>
+                <div class="search_name">
+                    <div class="search_name_eg search_form_position">
+                        例:よなよなエール 生ビール
+                    </div>
+                    <div class="search_name_window">
+                        <form action="soushinsaki" method="post">
+                            <div class="search_form_position">
+                                <input type="text">
+                            </div>
+                            <div class="search_button_right">
+                                <button type="submit" class="btn btn-warning">ビール名で検索</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- 追従メニュー　ここまで -->
+
+            <div class="content_ranking">
+                <div>
+                    <h2>八王子周辺でビールが安い順</h2>
+                </div>
+                <hr>
+                <% i = 0 %>
+                <% @stores_data.each do |store| %>
+                <!-- お店情報　ここから -->
+                <div class="ranking_box_oya">
+                    <div class="ranking_box_image">
+                        <img src="<%= store["image1"] %>" alt="<%= store["store_name"] %>の写真">
+                    </div>
+                    <div class="ranking_item_info">
+                        <div class="ranking_item_top">
+                            <div class="ranking_rank">
+                                <%=
+                                i += 1
+                                if i < 4 then
+                                    image_tag("icons/#{i}.svg")
+                                else
+                                    i
+                                end  
+                                %>
+                            </div>
+                            <div>
+                                <%= link_to(store["store_name"], "/show/#{store["store_code"]}") %>
+                            </div>
+                        </div>
+                        <div class="ranking_item_middle">
+                            <div class="item_middle_dis">
+                                <div class="item_dis_info">
+                                    <div>
+                                        <span class="material-icons">
+                                            directions_walk
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <%= store["access_line"] + store["access_station"] %>徒歩<%= store["access_walk"] %>分
+                                    </div>
+                                </div>
+                                <div class="item_ave_info">
+                                    <div>
+                                        <span class="material-icons">
+                                        attach_money
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <%= store["budget"].to_s(:delimited) %>円~
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item_price_info">
+                                <div><%= store["drink_price"].to_s(:delimited) %>円</div>
+                            </div>
+                        </div>
+                        <div class="item_ilc_tag">
+                        <% store["drink_name"].each do |name| %>
+                            <span class="badge badge-info"><%= name %></span>
+                        <% end %>
+                        </div>
+                        <div class="item_shop_des">
+                            <div><%= store["pr"] %></div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <!--　お店情報 ここまで -->
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <%= @kontiwa %>
+</div>

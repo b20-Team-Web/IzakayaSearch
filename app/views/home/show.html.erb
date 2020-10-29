@@ -1,88 +1,158 @@
-
-<div class="show_title">
-    <h1>hogehogehoge</h1>
-</div>
-<hr class="show_hr">
-<div>
-    <ul class="slider scroll_images" id="img">
-    <% for i in 1..4 do %>
-        <li>
-            <div><%= image_tag("show_images/2/#{i}.jpg",alt:"お店画像") %></div>
-        </li>
-    <% end %>
-        <li>
-            <div><%= image_tag("item_image/1.jpg" , alt:"横長画像") %></div>
-        </li>
-    </ul>
-</div>
-
-<div class="show_contentList">
-    <ul>
-        <li class="show_contentList_box">
-            <div class="show_contentList_box_beer">
-                <div class="show_contentList_box_beer_text">
-                    <b>ビール最安</b>
-                </div>
-                <div class="show_contentList_box_beer_price">
-                    <b class="show_contentList_box_beer_price_small">¥</b><b>300~</b>
-                </div>
-            </div>
-            <div class="show_contentList_box_info">
-                <div>
-                    <i class="fas fa-walking walk_fa_size"></i><b class="show_contentList_box_info_dis">ＪＲ 八王子駅 徒歩2分</b>
-                </div>
-                <div>
-                    <i class="fas fa-utensils ave_fa_size"></i><b class="show_contentList_box_info_ave">¥300円~</b>
-                </div>
-            </div>
-            <div class="show_contentList_box_items">
-                <div class="show_contentList_box_items_map">
-                    <%= image_tag("icons/google_map_icon.svg") %>
-                    <span class="material-icons">chevron_right</span>
-                </div>
-                <div class="show_contentList_box_items_grnb">
-                    <%= image_tag("icons/gurunabi.jpg") %><span class="material-icons">chevron_right</span>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="ad_space">
-    <div>広告スペース</div>
-</div>
-<div class="sub_title">
-    <b>取り扱っているビールの種類</b>
-</div>
-<div class="show_menuList">
-    <ul class="show_menuList_box">
-        <li class="show_menuList_item">
-            <div class="show_menuList_item_beer">
-                <div class="show_menuList_item_beer_name">アサヒ</div>
-                <div class="show_menuList_item_beer_bool">○</div>
-            </div>
-            <div class="show_menuList_item_beer">
-                <div class="show_menuList_item_beer_name">キリン</div>
-                <div class="show_menuList_item_beer_bool">○</div>
-            </div>
-            <div class="show_menuList_item_beer">
-                <div class="show_menuList_item_beer_name">一番搾り</div>
-                <div class="show_menuList_item_beer_bool">○</div>
-            </div>
-            <div class="show_menuList_item_beer">
-                <div class="show_menuList_item_beer_name">プレミアムモルツ</div>
-                <div class="show_menuList_item_beer_bool">○</div>
-            </div>
-            <div class="show_menuList_item_beer">
-                <div class="show_menuList_item_beer_name">orion</div>
-                <div class="show_menuList_item_beer_bool">○</div>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="show_backtoPage">
-    <div class="show_backtoPage_item">
-        <b>一覧に戻る</b>
+<div class="show_box">
+    <div class="show_midashi">
+        <div class="content_pankuzu">
+            
+        </div>
+        <div>
+            <h2><%= @store[0]["store_name"] %></h2>
+        </div>
+        <hr>
     </div>
+
+    <div class="show_images">
+        <div class="show_image_main">
+            <img src="<%= @store[0]["image1"] %>" alt="<%= @store[0]["store_name"] %>の画像1">
+        </div>
+        <% unless @store[0]["image2"].empty? %>
+        <div class="show_image_main">
+            <img src="<%= @store[0]["image2"] %>" alt="<%= @store[0]["store_name"] %>の画像1">
+        </div>  
+        <% end %>
+    </div>
+
+    <hr class="cheap_beer_top">
+    <div class="cheap_beer">
+        <div class="cheap_beer_left">
+            <div>最安ビール価格</div>
+        </div>
+        <div class="cheap_beer_right">
+            <div class="cheap_beer_name">
+                <%= @store[0]["drink_name"] %>
+            </div>
+            <div class="cheap_beer_price">
+                <%= @store[0]["min(drink_price)"] %>円
+            </div>
+        </div>
+    </div>
+    <hr class="cheap_beer_bottom">
+
+    <div class="tag_area">
+        <div>
+            <b>このお店のお酒タグ</b>
+        </div>
+        <div class="tag_box"><!-- ループを回そう -->
+        
+        </div>
+    </div>
+    <hr class="tag_bottom">
+    <div class="beer_type">
+        <div>
+            ビールの種類
+        </div>
+        <hr>
+        <div><!-- ループで回す -->
+        <% @drink.each do |drink| %>
+            <div class="beer_type_item">
+                <div class="beer_name">
+                    <%= drink["name"] %>
+                </div>
+                <div class="beer_price">
+                    <%= drink["price"] %>円
+                </div>
+            </div>
+            <hr>
+        <% end %>
+        </div>
+    </div>
+    <hr class="detail_info_top">
+    <div class="detail_info">
+        <div>
+            <h2>店舗情報</h2>
+        </div>
+        <hr class="detail_info_hr">
+        <div class="detail_info_item">
+            <div class="detail_info_row">
+                <div class="detail_info_type">
+                    <div>
+                        店名
+                    </div>
+                </div>
+                <div class="detail_info_data">
+                    <div>
+                        <%= @store[0]["store_name"] %>
+                    </div>
+                </div>
+            </div>
+            <div class="detail_info_row">
+                <div class="detail_info_type">
+                    <div>
+                        平均価格
+                    </div>
+                </div>
+                <div class="detail_info_data">
+                    <div>
+                        <%= @store[0]["budget"].to_s(:delimited) %>円
+                    </div>
+                </div>
+            </div>
+            <div class="detail_info_row">
+                <div class="detail_info_type">
+                    <div>
+                        住所
+                    </div>
+                </div>
+                <div class="detail_info_data">
+                    <div>
+                        <%= @store[0]["address"] %>
+                    </div>
+                </div>
+            </div>
+            <div class="detail_info_row">
+                <div class="detail_info_type">
+                    <div>
+                        アクセス
+                    </div>
+                </div>
+                <div class="detail_info_data">
+                    <div>
+                        <%= @store[0]["access_line"]+@store[0]["access_station"] %>徒歩<%= @store[0]["access_walk"] %>分
+                    </div>
+                </div>
+            </div>
+            <div class="detail_info_row">
+                <div class="detail_info_type">
+                    <div>
+                        電話番号
+                    </div>
+                </div>
+                <div class="detail_info_data">
+                    <div>
+                        <%= @store[0]["tel"] %>
+                    </div>
+                </div>
+            </div>
+            <div class="detail_info_row">
+                <div class="detail_info_type">
+                    <div>
+                        アクセス
+                    </div>
+                </div>
+                <div class="detail_info_data">
+                    <div>
+                        <%= @store[0]["opentime"] %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div>
+<p>@drink</p>
+<%= @drink %>
 </div>
 
-<%= javascript_pack_tag 'slick-custom.js' %> <!-- pack_tagの動作確認 -->
+<div>
+<p>@store</p>
+<%= @store %>
+</div>
