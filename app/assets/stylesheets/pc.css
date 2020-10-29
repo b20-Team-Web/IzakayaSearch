@@ -20,8 +20,7 @@
     display: flex;
     background-image: url("/assets/top_image_pc.jpg");
     background-size: cover;
-    height: 45vw;
-    width: 100%;
+    width: 80%;
 }
 
 .top_area_image div {
@@ -33,7 +32,7 @@
 .top_area_text_oya_box {
     display: flex;
     flex-direction: column;
-    margin: 6% 0 0 20%;
+    margin: 6% 0 4% 16%;
 }
 
 .top_area_text_ko_1 {
@@ -113,7 +112,11 @@
 }
 
 .search_sort {
-    margin-top: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 130px;
 }
 
 .search_sort div{

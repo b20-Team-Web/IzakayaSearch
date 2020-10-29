@@ -54,20 +54,10 @@
                     <div>並び順</div>
                 </div>
                 <div class="search_sort">
-                    <form action="soushinsaki" method="post">
-                        <div class="search_form_position">
-                            <input type="radio" name="sort" value="1" checked="checked">平均価格が安い順
-                        </div>
-                        <div class="search_form_position">
-                            <input type="radio" name="sort" value="2">駐車場が多い順
-                        </div>
-                        <div class="search_form_position">
-                            <input type="radio" name="sort" value="3">ビールが安い順
-                        </div>
-                        <div class="search_button_right">
-                            <button type="submit" class="btn btn-warning">並び替え</button>
-                        </div>
-                    </form>
+                    <%= link_to "平均価格が安い順", {controller: "home", action: "top", sort: "budget"}, method: :get%>
+                    <div class="badge badge-warning">
+                        <%= link_to("ビール一杯の安い順", top_path, class: 'hoge')  %>
+                    </div>
                 </div>
                 <div class="search_midashi">
                     <div class="search_midashi_icon">
@@ -166,4 +156,8 @@
             </div>
         </div>
     </div>
+</div>
+
+<div>
+    <%= @kontiwa %>
 </div>
