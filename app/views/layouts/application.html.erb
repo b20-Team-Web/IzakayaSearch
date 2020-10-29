@@ -25,18 +25,15 @@
 
   <body>
     <div class="wrap">
-    <div class="logo_area">
-      <header>
-        <%= image_tag("/assets/logo.png") %>
-      </header>
-    </div>
-    <hr>
-    <%= yield %>
-    </div>
-    <footer>
-      <div class="footer">
-        footerです
+      <div class="logo_area">
+        <header>
+          <%= image_tag("/assets/logo.png") %>
+        </header>
       </div>
-    </footer>
+      <%= yield %>
+      <footer>
+        
+      </footer>
+    </div>
   </body>
 </html>
