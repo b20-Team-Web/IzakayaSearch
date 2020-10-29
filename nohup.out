@@ -1,0 +1,84 @@
+=> Booting Puma
+=> Rails 6.0.3.4 application starting in production 
+=> Run `rails server --help` for more startup options
+Puma starting in single mode...
+* Version 4.3.6 (ruby 2.6.5-p114), codename: Mysterious Traveller
+* Min threads: 5, max threads: 5
+* Environment: production
+* Listening on unix:///var/www/app/IzakayaSearch/tmp/sockets/puma.sock
+Use Ctrl-C to stop
+- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2020-10-15 14:36:58 +0000 ===
+- Goodbye!
+Exiting
+=> Booting Puma
+=> Rails 6.0.3.4 application starting in production 
+=> Run `rails server --help` for more startup options
+Puma starting in single mode...
+* Version 4.3.6 (ruby 2.6.5-p114), codename: Mysterious Traveller
+* Min threads: 5, max threads: 5
+* Environment: production
+* Listening on unix:///var/www/app/IzakayaSearch/tmp/sockets/puma.sock
+Use Ctrl-C to stop
+=> Booting Puma
+=> Rails 6.0.3.4 application starting in production 
+=> Run `rails server --help` for more startup options
+A server is already running. Check /var/www/app/IzakayaSearch/tmp/pids/server.pid.
+Exiting
+=> Booting Puma
+=> Rails 6.0.3.4 application starting in production 
+=> Run `rails server --help` for more startup options
+Puma starting in single mode...
+* Version 4.3.6 (ruby 2.6.5-p114), codename: Mysterious Traveller
+* Min threads: 5, max threads: 5
+* Environment: production
+* Listening on unix:///var/www/app/IzakayaSearch/tmp/sockets/puma.sock
+Use Ctrl-C to stop
+2020-10-16 02:46:11 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-16 14:18:47 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-16 15:40:11 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-17 07:52:57 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-17 18:04:15 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-17 22:20:03 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-18 09:59:15 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-18 13:02:57 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-19 15:13:29 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-20 02:19:33 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-22 06:55:33 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-23 01:03:53 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-23 18:11:27 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-23 19:19:13 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-24 08:44:07 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-24 21:16:22 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-25 10:45:42 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-26 00:38:23 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-26 13:23:07 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-26 15:41:01 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-27 05:15:17 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-27 06:05:51 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-27 22:32:15 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
+2020-10-28 13:52:34 +0000: HTTP parse error, malformed request (127.0.0.1/): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+---
