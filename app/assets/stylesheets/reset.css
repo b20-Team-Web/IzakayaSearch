@@ -88,3 +88,14 @@ hr {
 input, select {
     vertical-align:middle;
 }
+
+button,
+input[type="submit"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+}
