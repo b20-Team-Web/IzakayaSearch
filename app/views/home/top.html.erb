@@ -15,14 +15,10 @@
         <p class="p-topAreaSearchTitle"><span class="material-icons">plagiarism</span>並び順</p>
         <ul class="p-topAreaSearchList">
             <li class="p-topAreaSearchList__item">
-                <%= link_to "ビール一杯の安い順", {controller: "home", action: "top"}, method: :get do %>
-                    ビールの安い順
-                <% end %>
+                <%= button_to "価格が安い順", {controller: "home", action: "top"}, {method: :get} %>
             </li>
             <li class="p-topAreaSearchList__item">
-                <%= link_to "平均価格が安い順", {controller: "home", action: "top", sort: "budget"}, method: :get do%>
-                    平均予算が安い順
-                <% end %>
+                <%= button_to "平均価格が安い順", {controller: "home", action: "top"}, {method: :get, params: {sort: "budget"}} %>
             </li>
         </ul>
     </div>

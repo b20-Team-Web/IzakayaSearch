@@ -67,15 +67,19 @@
     </table>
 
     <div class="p-storeDetailInfo__link">
-        <a href="https://www.google.com/maps?q=<%= @store[0]["latitude"] %>,<%= @store[0]["longitude"] %>" class="p-storeDetailInfo_linkItem">
-            <%= image_tag("icons/google_map.svg") %>
-            <p>Google Map</p>
-            <span class="material-icons">chevron_right</span>
-        </a>
-        <a href="<%= @store[0]["url"] %>" class="p-storeDetailInfo_linkItem">
-            <%= image_tag("icons/gurunabi.svg") %>
-            <p>ぐるなび</p>
-            <span class="material-icons">chevron_right</span>
-        </a>
+        <div class="p-storeDetailInfoBox">
+            <a href="https://www.google.com/maps?q=<%= @store[0]["latitude"] %>,<%= @store[0]["longitude"] %>" class="p-storeDetailInfo_linkItem">
+                <%= image_tag("icons/google_map.svg") %>
+                <p>Google Map</p>
+                <span class="material-icons">chevron_right</span>
+            </a>
+        </div>
+        <div class="p-storeDetailInfoBox">
+            <a href="<%= @store[0]["url"] %>" class="p-storeDetailInfo_linkItem">
+                <%= image_tag("icons/gurunabi.svg") %>
+                <p>ぐるなび</p>
+                <span class="material-icons">chevron_right</span>
+            </a>
+        </div>
     </div>
 </section>
