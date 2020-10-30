@@ -8,45 +8,50 @@
         <p class="topArea__priceAccess"><%= @stores_data[0]["access_line"] + @stores_data[0]["access_station"] %>徒歩<%= @stores_data[0]["access_walk"] %>分</p>
     </div>
 </div>
+<div class="topSort_area">
+    <span>
+        <%= button_to "価格が安い順", {controller: "home", action: "top"}, {method: :get} %>
+    </span>
+    <span>
+        <%= button_to "平均価格が安い順", {controller: "home", action: "top"}, {method: :get, params: {sort: "budget"}} %>
+    </span>
+</div>
 <section class="topAreaList">
     <h2 class="sectionHeader">
-        <p class="section__title">八王子駅周辺で最もビールが安いお店</p>
+        <p class="section__title">八王子駅周辺で最も<%= @h2_title %></p>
     </h2>
     <ul>
         <% i = 0 %>
         <% @stores_data.each do |store| %>
             <li class="topAreaListCard">
                 <%= link_to("/show/#{store["store_code"]}") do %>
-                    <div class="topAreaListCardImage">
-                        <img src="<%= store["image1"] %>" alt="<%= store["store_name"] %>の写真">
+                    <div class="topAreaListCardInfo__rank">
+                        <% i += 1 %> 
+                        <span>
+                            <%= if i < 4 then image_tag("icons/#{i}.svg") else i end  %>
+                        </span>
+                        <h4 class="topAreaListCardInfo__title"><%= store["store_name"]%></h4>
                     </div>
-                    <div class="topAreaListCardInfo">
-                        <div class="topAreaListCardInfo__rank">
-                            <%=
-                                i += 1
-                                if i < 4 then
-                                    image_tag("icons/#{i}.svg")
-                                else
-                                    i
-                                end  
-                            %>
+                    <div class="topAreaListCardInfo__detail">
+                        <div class="topAreaListCardImage">
+                            <img src="<%= store["image1"] %>" alt="<%= store["store_name"] %>の写真">
                         </div>
-                        <div class="topAreaListCardInfo__wrapper">
-                            <h4 class="topAreaListCardInfo__title"><%= store["store_name"]%></h4>
-                            <div class="topAreaListCardInfo__detail">
-                                <div class="topAreaListCardInfo__detailAccess">
-                                    <p><i class="fas fa-walking topAreaListCardInfo__detailAccessIcon"></i><%= store["access_line"] + store["access_station"] %>徒歩<%= store["access_walk"] %>分</p>
-                                    <p><i class="fas fa-utensils topAreaListCardInfo__detailAccessIcon"></i>平均予算<span><%= store["budget"].to_s(:delimited) %>円~</p>
-                                </div>
-                                <div class="topAreaListCardInfo__detailPrice">
-                                    <p><%= store["drink_price"].to_s(:delimited) %>円</p>
-                                </div>
+                        <div class="topAreaListCardInfo__detailBox">
+                            <div class="topAreaListCardInfo__detailPrice">
+                                <p>最安値</p>
+                                <i><%= store["drink_price"].to_s(:delimited) %>円</i>
                             </div>
-                            <ul class="topAreaListCardInfo__tag">
-                                <% store["drink_name"].each do |name| %>
-                                    <li class="topAreaListCardInfo__tagItem"><%= name %></li>
-                                <% end %>
-                            </ul>
+                            <div class="topAreaListCardInfo__detailAccess">
+                                <p><i class="fas fa-walking topAreaListCardInfo__detailAccessIcon"></i><%= store["access_line"] + store["access_station"] %>徒歩<%= store["access_walk"] %>分</p>
+                                <p><i class="fas fa-utensils topAreaListCardInfo__detailAccessIcon"></i>平均予算<span><%= store["budget"].to_s(:delimited) %>円~</p>
+                            </div>
+                            <div>
+                                <ul class="topAreaListCardInfo__tag">
+                                    <% store["drink_name"].each do |name| %>
+                                        <li class="topAreaListCardInfo__tagItem"><%= name %></li>
+                                    <% end %>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 <% end %>
