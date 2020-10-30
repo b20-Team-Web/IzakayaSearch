@@ -28,11 +28,15 @@
     <div class="wrap">
       <div class="logo_area">
         <header>
-          <%= image_tag("logo.png") %>
+          <%= link_to image_tag("logo.png"), "/" %>
         </header>
       </div>
       <%= yield %>
-      <footer>
+      <footer class="footer">
+        <div>
+          <%= button_to "topへもどる", {controller: "home", action: "top"}, {method: :get} %>
+          <%= button_to "平均価格順で見る", {controller: "home", action: "top"}, {method: :get, params:{sort: "budget"}} %>
+        </div>
       </footer>
     </div>
   </body>

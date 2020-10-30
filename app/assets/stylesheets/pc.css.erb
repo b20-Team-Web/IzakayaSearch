@@ -1,12 +1,17 @@
 .footer {
+    height: 200px;
     margin-top: 4vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.25);
+    width: 100%;
 }
 
 .footer div {
-    margin: 4vw;
+    width: 50%;
+    display: inline-flex;
+    justify-content: space-around;
 }
 
 .p-topAreaFirstView {
@@ -203,471 +208,119 @@
     padding: 16px 0;
 }
 
-
-
-
-.first_area_pc {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.p-storeDetail__image {
+    height: 400px;
+    width: 70%;
+    margin: auto auto 16px;
 }
 
-.top_area_image {
+.p-storeDetail__image > img {
+    width: 100%;
+    height: 100%;
+}
+
+.p-storeDetailTable {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.p-storeDetailTable__th {
+    width: 30%;
+    vertical-align: middle;
+    font-size: 26px;
+    font-weight: bold;
+    border-left: unset;
+    border-right: unset;
+    background-color: #FFEE58;
+}
+
+.p-storeDetailTable__td {
     display: flex;
-    background-image: url(<%= asset_path("top_image_pc.jpg") %>);
-    background-size: cover;
+    font-size: 26px;
+    font-weight: bold;
+    border-right: unset;
+}
+
+.p-storeDetailTable__th,
+.p-storeDetailTable__td {
+    padding: 26px;
+}
+
+.p-storeDetailTable__text {
     width: 80%;
 }
 
-.top_area_image div {
-    font-weight: bold;
-    color: #FFBE39;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.45), -1px 1px 0 rgba(0, 0, 0, 0.45), 1px -1px 0 rgba(0, 0, 0, 0.45), -1px -1px 0 rgba(0, 0, 0, 0.45);
-}
-
-.top_area_text_oya_box {
-    display: flex;
-    flex-direction: column;
-    margin: 6% 0 4% 16%;
-}
-
-.top_area_text_ko_1 {
-    display: flex;
-    align-items: flex-end;
-}
-
-.pc_fontsize_small {
-    font-size: 2vw;
-}
-
-.pc_fontsize_largesmall {
-    font-size: 2.5vw;
-}
-
-.pc_fontsize_normal {
-    font-size: 5vw;
-}
-
-.pc_fontsize_large {
-    font-size: 10vw;
-}
-
-.top_area_text_ko_2 {
-    display: flex;
-    align-items: flex-end;
-}
-
-.content_area {
-    display: flex;
-    flex-direction: column;
-    width: 75%;
-}
-
-.search_midashi {
-    display: flex;
-    align-items: center;
-    background-color: #dcdcdc;
-}
-
-.content_pankuzu {
-    display: flex;
-    height: 40px;
-    align-items: center;
-    color: #a9a9a9;
-}
-
-.content_main_items{
-    display: flex;
-}
-
-.content_search {
-    width: 30%;
-    height: fit-content;
-    overflow: hidden;
-    border-radius: 10px;
-    margin-right: 2vw;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 1vw;
-    border: 1px solid gainsboro;
-    display: flex;
-    flex-direction: column;
-}
-
-.search_button_right {
+.p-storeDetailTable__price {
+    width: 20%;
     text-align: right;
+    color: red;
 }
 
-.search_form_position {
+.p-storeDetailTable__tag {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 16px 16px;
+    border-bottom: 1px solid #8D8D8D;
+}
+
+.p-storeDetailTable__tagItem {
+    display: inline-block;
+    padding: 12px;
+    margin: 0 12px 8px 0;
+    background-color: #AFCFFF;
+    border-radius: 4px;
+}
+
+.p-storeDetailDrinkTable {
+    width: 70%;
+    margin: 16px auto;
+}
+
+.p-storeDetailDrinkTable__caption {
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 12px 0;
+    border-left: 8px solid #FFEE58;
+    padding-left: 12px;
+}
+
+.p-storeDetailDrinkTable__th {
+    text-align: left;
+}
+
+.p-storeDetailDrinkTable__td {
     text-align: center;
+    font-weight: bold;
 }
 
-.search_midashi_icon {
-    width: 15%;
-    text-align: center;
+.p-storeDetailDrinkTable__td--store {
+    text-align: left;
+    font-weight: bold;
 }
 
-.search_sort {
+.p-storeDetailInfo__link {
+    margin: 16px 0;
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+}
+
+.p-storeDetailInfoBox {
+    width: 350px;
+}
+
+.p-storeDetailInfo_linkItem {
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 16px 20px;
+    border: 1px solid black;
+    margin: 12px 0;
+    border-radius: 50px;
     align-items: center;
     justify-content: space-around;
-    height: 130px;
 }
 
-.search_sort div{
-    width: 200px;
-    height: 35px;
-
-}
-
-.search_name {
-    margin-top: 2vw;
-}
-
-.search_name_eg {
-    color: #a9a9a9;
-}
-
-.search_name_window div{
-    height: 6vw;
-}
-
-.content_ranking {
-    width: 70%;
-}
-
-.content_ranking h2 {
-    font-size: 26px;
-}
-
-.content_ranking hr {
-    margin-top: 1vw;
-    border-top: 1px solid #d3d3d3;
-}
-
-.ranking_box_oya {
-    display: flex;
-    margin: 1vw 1vw 1vw 1vw;
-}
-
-.ranking_box_image {
-    display: inline-flex;
-    width: 30%;
-    margin-right: 1vw;
-    justify-content: center;
-    align-items: center;
-}
-
-.ranking_item_info {
-    width: 70%;
-}
-
-.ranking_box_image img {
-    width: 90%;
-    height: 90%;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.ranking_item_top {
-    display: flex;
-}
-
-.ranking_rank {
-    font-size: 2vw;
-    margin-right: 0.5vw;
-    width: 10%
-}
-
-.ranking_item_top img {
-    height: 2vw;
-}
-
-.ranking_item_top a {
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.ranking_item_top div {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-
-.ranking_item_middle {
-    display: flex;
-}
-
-.orange {
-    color: orange;
-}
-
-.dimgray {
-    color:dimgray;
-}
-
-.item_middle_dis {
-    display: flex;
-    flex-direction: column;
-    width: 65%;
-}
-
-.item_dis_info {
-    display: flex;
-    flex-direction: row;
-    margin: 0.5vw;
-}
-
-.item_ave_info {
-    display: flex;
-    flex-direction: row;
-    margin: 0 0.5vw;
-}
-
-.item_price_info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 35%;
-    font-size: 3vw;
-    font-weight: bold;
-    color: red;
-}
-
-.item_ilc_tag {
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.item_ilc_tag span {
-    margin: 0 4px 4px 0;
-}
-
-.item_shop_des {
-    color: #a9a9a9;
-    white-space: nowrap;
-    width: 100%;
-    overflow: hidden;
-    font-size: 1vw;
-}
-
-/*
-ここからshowのcss
-*/
-
-.show_box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center;
-}
-
-.show_midashi {
-    width: 80%;
-    align-items: left;
-}
-
-.show_images {
-    display: flex;
-    background-color: #E5E0E0;
-    height: 25vw;
-    width: 80%;
-    text-align: center;
-    justify-content: center;
-}
-
-.show_image_main {
-    margin: 10px;
-    width: 48%;
-}
-
-.show_image_main img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.show_image_main div {
-    display: flex;
-    border: solid 1px #c0c0c0;
-    height: 100%;
-    justify-content: center; 
-    align-items: center;
-}
-
-.show_image_sub {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 1% 1% 1% 0.5%;
-    width: 48%;
-    justify-content: center; 
-    align-items: center;
-}
-
-.show_image_sub img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.show_image_sub div {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    border: solid 1px #c0c0c0;
-    width: 50%;
-    height: 50%;
-}
-
-.cheap_beer {
-    display: flex;
-    flex-direction: row;
-    width: 80%;
-    height: 6vw;
-}
-
-.cheap_beer_top {
-    width: 80%;
-    margin: 1vw 0 0 0;
-}
-
-.cheap_beer_bottom {
-    width: 80%;
-    margin: 0 0 1vw 0;
-}
-
-.cheap_beer_left {
-    display: flex;
-    width: 30%;
-    height: 100%;
-    background-color: #FFE798;
-    justify-content: center; 
-    align-items: center;
-}
-
-.cheap_beer_left div {
-    display: flex;
-    width: 100%;
-    justify-content: center; 
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.5vw;
-}
-
-.cheap_beer_right {
-    display: flex;
-    width: 70%;
-    justify-content: space-between;
-    font-weight: bold;
-}
-
-.cheap_beer_right div {
-    display: flex;
-    justify-items: center;
-    align-items: center;
-}
-
-.cheap_beer_name {
-    margin-left: 5%;
-    font-size: 1.5vw;
-}
-
-.cheap_beer_price {
-    margin-right: 5%;
-    font-size: 2vw;
-    color: red;
-}
-
-.tag_area {
-    width: 80%;
-}
-
-.tag_box {
-    font-size: 2vw;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.tag_box span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: 3vw;
-    margin: 0.5vw;
-}
-
-.tag_bottom {
-    width: 80%;
-}
-
-.beer_type {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    font-weight: bold;
-}
-
-.beer_type_item {
-    display: flex;
-    justify-content: space-between;
-}
-
-.beer_name {
-    margin-left: 5%;
-}
-
-.beer_price {
-    margin-right: 5%;
-}
-
-.detail_info_top {
-    width: 80%;
-}
-
-.detail_info {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-}
-
-.detail_info_item {
-    display: flex;
-    flex-direction: column;
-}
-
-.detail_info_row {
-    display: flex;
-    flex-direction: row;
-}
-
-.detail_info_type {
-    display: flex;
-    align-items: center;
-    width: 30%;
-    height: auto;
-    background-color: #FFE798;
-    border-bottom: 1px solid rgba(0,0,0,.1);
-}
-
-.detail_info_type div {
-    margin-left: 10%;
-}
-
-.detail_info_data {
-    display: flex;
-    align-items: center;
-    height: auto;
-    width: 70%;
-    border-bottom: 1px solid rgba(0,0,0,.1);
-}
-
-.detail_info_data div {
-    margin: 2vw;
+.p-storeDetailInfo__linkItem > img {
+    margin-right: 12px;
 }

@@ -5,163 +5,81 @@
     <div class="p-storeDetail__image">
         <img src="<%= @store[0]["image1"] %>" alt="<%= @store[0]["store_name"] %>の画像1">
     </div>
-
-</section>
-
-
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<div class="show_box">
-    <div class="show_midashi">
-        <div class="content_pankuzu">
-            
-        </div>
-        <div>
-            <h2><%= @store[0]["store_name"] %></h2>
-        </div>
-        <hr>
-    </div>
-
-    <div class="show_images">
-        <div class="show_image_main">
-            <img src="<%= @store[0]["image1"] %>" alt="<%= @store[0]["store_name"] %>の画像1">
-        </div>
-        <% unless @store[0]["image2"].empty? %>
-        <div class="show_image_main">
-            <img src="<%= @store[0]["image2"] %>" alt="<%= @store[0]["store_name"] %>の画像1">
-        </div>  
-        <% end %>
-    </div>
-
-    <hr class="cheap_beer_top">
-    <div class="cheap_beer">
-        <div class="cheap_beer_left">
-            <div>最安ビール価格</div>
-        </div>
-        <div class="cheap_beer_right">
-            <div class="cheap_beer_name">
-                <%= @store[0]["drink_name"] %>
-            </div>
-            <div class="cheap_beer_price">
-                <%= @store[0]["min(drink_price)"] %>円
-            </div>
-        </div>
-    </div>
-    <hr class="cheap_beer_bottom">
-
-    <div class="tag_area">
-        <div>
-            <b>このお店のお酒タグ</b>
-        </div>
-        <div class="tag_box"><!-- ループを回そう -->
-        
-        </div>
-    </div>
-    <hr class="tag_bottom">
-    <div class="beer_type">
-        <div>
-            ビールの種類
-        </div>
-        <hr>
-        <div>
-        <% @drink.each do |drink| %>
-            <div class="beer_type_item">
-                <div class="beer_name">
+    <table class="p-storeDetailTable">
+        <tr>
+            <th class="p-storeDetailTable__th">最安ビール価格</th>
+            <td class="p-storeDetailTable__td">
+                <p class="p-storeDetailTable__text">
+                    <%= @store[0]["drink_name"] %>
+                </p>
+                <p class="p-storeDetailTable__price">
+                    <%= @store[0]["min(drink_price)"] %>円
+                </p>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <h2 class="p-sectionHeader">このお店のタグ</h2>
+        <ul class="p-storeDetailTable__tag">
+            <% @drink.each do |drink| %>
+                <li class="p-storeDetailTable__tagItem">
                     <%= drink["name"] %>
-                </div>
-                <div class="beer_price">
-                    <%= drink["price"] %>円
-                </div>
-            </div>
-            <hr>
+                </li>
+            <% end %>
+        </ul>
+    <div>
+    <table class="p-storeDetailDrinkTable">
+        <caption class="p-storeDetailDrinkTable__caption">ドリンクの種類</caption>
+        <% @drink.each do |drink| %>
+            <tr>
+                <th class="p-storeDetailDrinkTable__th"><%= drink["name"] %></th>
+                <td class="p-storeDetailDrinkTable__td"><%= drink["price"] %>円</td>
+            </tr>
         <% end %>
+    </table>
+
+    <table class="p-storeDetailDrinkTable">
+        <caption class="p-storeDetailDrinkTable__caption">店舗情報</caption>
+            <tr>
+                <th class="p-storeDetailDrinkTable__th">店名</th>
+                <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["store_name"] %></td>
+            </tr>
+            <tr>
+                <th class="p-storeDetailDrinkTable__th">平均予算</th>
+                <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["budget"].to_s(:delimited) %>円</td>
+            </tr>
+            <tr>
+                <th class="p-storeDetailDrinkTable__th">住所</th>
+                <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["address"] %></td>
+            </tr>
+            <tr>
+                <th class="p-storeDetailDrinkTable__th">アクセス</th>
+                <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["access_line"]+@store[0]["access_station"] %>徒歩<%= @store[0]["access_walk"] %>分</td>
+            </tr>
+            <tr>
+                <th class="p-storeDetailDrinkTable__th">電話番号</th>
+                <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["tel"] %></td>
+            </tr>
+            <tr>
+                <th class="p-storeDetailDrinkTable__th">営業時間</th>
+                <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["opentime"] %></td>
+            </tr>
+    </table>
+
+    <div class="p-storeDetailInfo__link">
+        <div class="p-storeDetailInfoBox">
+            <a href="https://www.google.com/maps?q=<%= @store[0]["latitude"] %>,<%= @store[0]["longitude"] %>" class="p-storeDetailInfo_linkItem">
+                <%= image_tag("icons/google_map.svg") %>
+                <p>Google Map</p>
+                <span class="material-icons">chevron_right</span>
+            </a>
+        </div>
+        <div class="p-storeDetailInfoBox">
+            <a href="<%= @store[0]["url"] %>" class="p-storeDetailInfo_linkItem">
+                <%= image_tag("icons/gurunabi.svg") %>
+                <p>ぐるなび</p>
+                <span class="material-icons">chevron_right</span>
+            </a>
         </div>
     </div>
-    <hr class="detail_info_top">
-    <div class="detail_info">
-        <div>
-            <h2>店舗情報</h2>
-        </div>
-        <hr class="detail_info_hr">
-        <div class="detail_info_item">
-            <div class="detail_info_row">
-                <div class="detail_info_type">
-                    <div>
-                        店名
-                    </div>
-                </div>
-                <div class="detail_info_data">
-                    <div>
-                        <%= @store[0]["store_name"] %>
-                    </div>
-                </div>
-            </div>
-            <div class="detail_info_row">
-                <div class="detail_info_type">
-                    <div>
-                        平均価格
-                    </div>
-                </div>
-                <div class="detail_info_data">
-                    <div>
-                        <%= @store[0]["budget"].to_s(:delimited) %>円
-                    </div>
-                </div>
-            </div>
-            <div class="detail_info_row">
-                <div class="detail_info_type">
-                    <div>
-                        住所
-                    </div>
-                </div>
-                <div class="detail_info_data">
-                    <div>
-                        <%= @store[0]["address"] %>
-                    </div>
-                </div>
-            </div>
-            <div class="detail_info_row">
-                <div class="detail_info_type">
-                    <div>
-                        アクセス
-                    </div>
-                </div>
-                <div class="detail_info_data">
-                    <div>
-                        <%= @store[0]["access_line"]+@store[0]["access_station"] %>徒歩<%= @store[0]["access_walk"] %>分
-                    </div>
-                </div>
-            </div>
-            <div class="detail_info_row">
-                <div class="detail_info_type">
-                    <div>
-                        電話番号
-                    </div>
-                </div>
-                <div class="detail_info_data">
-                    <div>
-                        <%= @store[0]["tel"] %>
-                    </div>
-                </div>
-            </div>
-            <div class="detail_info_row">
-                <div class="detail_info_type">
-                    <div>
-                        アクセス
-                    </div>
-                </div>
-                <div class="detail_info_data">
-                    <div>
-                        <%= @store[0]["opentime"] %>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+</section>
