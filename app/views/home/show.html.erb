@@ -28,8 +28,8 @@
             <% end %>
         </ul>
     <div>
+    <h2 class="p-sectionHeader">ドリンクの種類</h2>
     <table class="p-storeDetailDrinkTable">
-        <caption class="p-storeDetailDrinkTable__caption">ドリンクの種類</caption>
         <% @drink.each do |drink| %>
             <tr>
                 <th class="p-storeDetailDrinkTable__th"><%= drink["name"] %></th>
@@ -38,32 +38,32 @@
         <% end %>
     </table>
 
+    <h2 class="p-sectionHeader">店舗情報</h2>
     <table class="p-storeDetailDrinkTable">
-        <caption class="p-storeDetailDrinkTable__caption">店舗情報</caption>
-            <tr>
-                <th class="p-storeDetailDrinkTable__th">店名</th>
-                <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["store_name"] %></td>
-            </tr>
-            <tr>
-                <th class="p-storeDetailDrinkTable__th">平均予算</th>
-                <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["budget"].to_s(:delimited) %>円</td>
-            </tr>
-            <tr>
-                <th class="p-storeDetailDrinkTable__th">住所</th>
-                <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["address"] %></td>
-            </tr>
-            <tr>
-                <th class="p-storeDetailDrinkTable__th">アクセス</th>
-                <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["access_line"]+@store[0]["access_station"] %>徒歩<%= @store[0]["access_walk"] %>分</td>
-            </tr>
-            <tr>
-                <th class="p-storeDetailDrinkTable__th">電話番号</th>
-                <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["tel"] %></td>
-            </tr>
-            <tr>
-                <th class="p-storeDetailDrinkTable__th">営業時間</th>
-                <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["opentime"] %></td>
-            </tr>
+        <tr>
+            <th class="p-storeDetailDrinkTable__th">店名</th>
+            <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["store_name"] %></td>
+        </tr>
+        <tr>
+            <th class="p-storeDetailDrinkTable__th">平均予算</th>
+            <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["budget"].to_s(:delimited) %>円</td>
+        </tr>
+        <tr>
+            <th class="p-storeDetailDrinkTable__th">住所</th>
+            <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["address"] %></td>
+        </tr>
+        <tr>
+            <th class="p-storeDetailDrinkTable__th">アクセス</th>
+            <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["access_line"]+@store[0]["access_station"] %>徒歩<%= @store[0]["access_walk"] %>分</td>
+        </tr>
+        <tr>
+            <th class="p-storeDetailDrinkTable__th">電話番号</th>
+            <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["tel"] %></td>
+        </tr>
+        <tr>
+            <th class="p-storeDetailDrinkTable__th">営業時間</th>
+            <td class="p-storeDetailDrinkTable__td--store"><%= @store[0]["opentime"] %></td>
+        </tr>
     </table>
 
     <div class="p-storeDetailInfo__link">
