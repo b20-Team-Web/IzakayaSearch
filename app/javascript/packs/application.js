@@ -18,3 +18,4 @@ import 'bootstrap';
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 //= require_tree .
+require('navigation')
