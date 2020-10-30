@@ -1,7 +1,4 @@
-// window.onload = function () {
-//   alert("hoge");
-// };
-
 $(function(){
-  alert("hoge");
+    alert("hoge");
+    console.log("hoge");
 });
