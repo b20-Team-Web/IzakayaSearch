@@ -1,23 +1,23 @@
 <section class="storeDetail">
     <div class="storeDetail__title">
-        <h2>個室居酒屋 淡路島へ渡れ 八王子店</h1>
+        <h2><%= @store[0]["store_name"] %></h1>
     </div>
     <div class="storeDetail__image">
-        <%= image_tag("show_images/2/1.jpg", alt:"お店画像") %>
+        <img src="<%= @store[0]["image1"] %>" alt="<%= @store[0]["store_name"] %>の画像1">
     </div>
     <div class="storeDetailInfo">
-        <p class="storeDetailInfo__price">ビール最安値<span class="storeDetailInfo__priceEmphasis">¥1,390~</span></p>
+        <p class="storeDetailInfo__price">ビール最安値<span class="storeDetailInfo__priceEmphasis">¥<%= @store[0]["min(drink_price)"].to_s(:delimited) %>円</span></p>
         <div class="storeDetailInfo__access">
-            <p><i class="fas fa-utensils storeDetailInfo__accessIcon"></i>平均予算<span><%= 4000.to_s(:delimited) %></span>円</p>
-            <p><i class="fas fa-walking storeDetailInfo__accessIcon"></i>JR八王子駅 徒歩2分</p>
+            <p><i class="fas fa-utensils storeDetailInfo__accessIcon"></i>平均予算<span><%= @store[0]["budget"].to_s(:delimited) %>円</span></p>
+            <p><i class="fas fa-walking storeDetailInfo__accessIcon"></i><%= @store[0]["access_line"]+@store[0]["access_station"] %>徒歩<%= @store[0]["access_walk"] %>分</p>
         </div>
         <div class="storeDetailInfo__link">
-            <a href="https://www.google.com/maps?q=35.658226,139.338186" class="storeDetailInfo_linkItem">
+            <a href="https://www.google.com/maps?q=<%= @store[0]["latitude"] %>,<%= @store[0]["longitude"] %>" class="storeDetailInfo_linkItem">
                 <%= image_tag("icons/google_map.svg") %>
                 <p>Google Map</p>
                 <span class="material-icons">chevron_right</span>
             </a>
-            <a href="https://r.gnavi.co.jp/m6nvb4y50000/menu3/" class="storeDetailInfo_linkItem">
+            <a href="<%= @store[0]["url"] %>" class="storeDetailInfo_linkItem">
                 <%= image_tag("icons/gurunabi.svg") %>
                 <p>ぐるなび</p>
                 <span class="material-icons">chevron_right</span>
@@ -25,18 +25,14 @@
         </div>
     </div>
     <h2 class="sectionHeader">
-        <p class="section__title">八王子駅周辺で最もビールが安いお店</p>
+        <p class="section__title">このお店に置いてあるビール</p>
     </h2>
 
     <table class="storeDetailTable">
-        <% @is_beers.each do |beer| %>
+        <% @drink.each do |drink| %>
             <tr>
-                <th><%= beer['name'] %></th>
-                <% if beer['isBeer'] === true then %>
-                    <td>○</td>
-                <% else %>
-                    <td>✕</td>
-                <% end %>
+                <th><%= drink["name"] %></th>
+                <td><%= drink["price"] %>円</td>
             </tr>
         <% end %>
     </table>
