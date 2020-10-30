@@ -1,4 +1,4 @@
 $(function(){
-    alert("hoge");
+    // alert("hoge");
     console.log("hoge");
 });
