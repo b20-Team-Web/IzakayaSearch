@@ -25,7 +25,7 @@
         </div>
     </div>
     <h2 class="sectionHeader">
-        <p class="section__title">このお店に置いてあるビール</p>
+        <p class="section__title">ドリンクの種類</p>
     </h2>
 
     <table class="storeDetailTable">
@@ -35,6 +35,36 @@
                 <td><%= drink["price"] %>円</td>
             </tr>
         <% end %>
+    </table>
+
+    <h2 class="sectionHeader">
+        <p class="section__title">店舗情報</p>
+    </h2>
+    <table class="storeDetailTable">
+        <tr>
+            <th class="storeDetailTable__th">店名</th>
+            <td><%= @store[0]["store_name"] %></td>
+        </tr>
+        <tr>
+            <th class="storeDetailTable__th">平均予算</th>
+            <td><%= @store[0]["budget"].to_s(:delimited) %>円</td>
+        </tr>
+        <tr>
+            <th class="storeDetailTable__th">住所</th>
+            <td><%= @store[0]["address"] %></td>
+        </tr>
+        <tr>
+            <th class="storeDetailTable__th">アクセス</th>
+            <td><%= @store[0]["access_line"]+@store[0]["access_station"] %>徒歩<%= @store[0]["access_walk"] %>分</td>
+        </tr>
+        <tr>
+            <th class="storeDetailTable__th">電話番号</th>
+            <td><%= @store[0]["tel"] %></td>
+        </tr>
+        <tr>
+            <th class="storeDetailTable__th">営業時間</th>
+            <td><%= @store[0]["opentime"] %></td>
+        </tr>
     </table>
 </section>
 <a href="/" class="linkToTop">
