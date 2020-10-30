@@ -4,8 +4,8 @@
         <p>で安くビールが飲めるお店</p>
     </div>
     <div class="topArea__price">
-        <p>最安<span class="topArea__priceEmphasis">390</span>円〜</p>
-        <p class="topArea__priceAccess">八王子駅北口徒歩５分</p>
+        <p>最安<span class="topArea__priceEmphasis"><%= @stores_data[0]["drink_price"] %></span>円〜</p>
+        <p class="topArea__priceAccess"><%= @stores_data[0]["access_line"] + @stores_data[0]["access_station"] %>徒歩<%= @stores_data[0]["access_walk"] %>分</p>
     </div>
 </div>
 <section class="topAreaList">
@@ -13,30 +13,38 @@
         <p class="section__title">八王子駅周辺で最もビールが安いお店</p>
     </h2>
     <ul>
-        <% 3.times do |i| %>
+        <% i = 0 %>
+        <% @stores_data.each do |store| %>
             <li class="topAreaListCard">
-                <%= link_to '/show/1' do %>
+                <%= link_to("/show/#{store["store_code"]}") do %>
                     <div class="topAreaListCardImage">
-                        <%= image_tag("item_image/1.jpg") %>
+                        <img src="<%= store["image1"] %>" alt="<%= store["store_name"] %>の写真">
                     </div>
                     <div class="topAreaListCardInfo">
                         <div class="topAreaListCardInfo__rank">
-                            <%= image_tag("icons/#{i + 1}.svg") %>
+                            <%=
+                                i += 1
+                                if i < 4 then
+                                    image_tag("icons/#{i}.svg")
+                                else
+                                    i
+                                end  
+                            %>
                         </div>
                         <div class="topAreaListCardInfo__wrapper">
-                            <h4 class="topAreaListCardInfo__title">個室居酒屋 淡路島へ渡れ 八王子店</h4>
+                            <h4 class="topAreaListCardInfo__title"><%= store["store_name"]%></h4>
                             <div class="topAreaListCardInfo__detail">
                                 <div class="topAreaListCardInfo__detailAccess">
-                                    <p><i class="fas fa-walking topAreaListCardInfo__detailAccessIcon"></i>JR八王子駅 徒歩2分</p>
-                                    <p><i class="fas fa-utensils topAreaListCardInfo__detailAccessIcon"></i>平均予算<span><%= 4000.to_s(:delimited) %></span>円</p>
+                                    <p><i class="fas fa-walking topAreaListCardInfo__detailAccessIcon"></i><%= store["access_line"] + store["access_station"] %>徒歩<%= store["access_walk"] %>分</p>
+                                    <p><i class="fas fa-utensils topAreaListCardInfo__detailAccessIcon"></i>平均予算<span><%= store["budget"].to_s(:delimited) %>円~</p>
                                 </div>
                                 <div class="topAreaListCardInfo__detailPrice">
-                                    <p>320円</p>
+                                    <p><%= store["drink_price"].to_s(:delimited) %>円</p>
                                 </div>
                             </div>
                             <ul class="topAreaListCardInfo__tag">
-                                <% @beers.each do |beer| %>
-                                    <li class="topAreaListCardInfo__tagItem"><%= beer %></li>
+                                <% store["drink_name"].each do |name| %>
+                                    <li class="topAreaListCardInfo__tagItem"><%= name %></li>
                                 <% end %>
                             </ul>
                         </div>
