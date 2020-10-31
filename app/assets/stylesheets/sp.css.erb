@@ -90,8 +90,8 @@ ul {
     padding: 0 16px;
 }
 .topAreaListCard {
-    /* height: 260px; */
-    border-radius: 10px;
+    padding: 12px 0 12px 12px;
+    border-radius: 22px;
     margin-bottom: 16px;
     box-shadow: 0px 2px 3px grey;
 }
@@ -99,13 +99,12 @@ ul {
     display: flex;
     height: auto;
     width: 47%;
-    margin: 0 0 10px 10px;
     align-items: center;
 }
 .topAreaListCardImage > img {
     border-radius: 10px;
-    height: 180px;
-    width: 100%;
+    height: 165px;
+    width: 165px;
 }
 .topAreaListCardInfo {
     display: flex;
@@ -114,25 +113,16 @@ ul {
 }
 .topAreaListCardInfo__rank {
     display: flex;
-    justify-content: center;
-    height: 30px;
+    align-items: center;
 }
 
 .topAreaListCardInfo__rank span {
-    display: flex;
-    width: 15%;
-    justify-content: center;
-    text-align: center;
-    font-size: 25px;
+    font-size: 22px;
+    margin-right: 8px;
 }
 
-.topAreaListCardInfo__rank h4 {
-    display: flex;
-    align-items: center;
-    width: 85%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+.topAreaListCardInfo__rank > h4 {
+    align-self: initial;
 }
 
 .topAreaListCardInfo__wrapper {
@@ -167,10 +157,11 @@ ul {
 }
 
 .topAreaListCardInfo__detailPrice {
-    display: inline-flex;
+    display: flex;
     justify-content: space-between;
     font-weight: 700;
     margin: 10px 5px;
+    align-items: center;
 }
 
 .topAreaListCardInfo__detailPrice p {
@@ -192,6 +183,7 @@ ul {
     margin: 0 1px 8px 0;
     background-color: #AFCFFF;
     border-radius: 4px;
+    font-weight: bold;
 }
 .storeDetail {
     padding: 8px 16px 16px;
