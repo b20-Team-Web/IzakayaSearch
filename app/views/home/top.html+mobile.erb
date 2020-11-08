@@ -14,9 +14,13 @@
             <p>絞り込み条件を設定</p>
         </h2>
         <div class="topSort_pulldown">
-            <%= form_tag({controller: "home", action: "top"},{method: :get, id: "sortFrom"}) do %>
-                <%= select_tag "sort", options_for_select([["ビールが安い順",""],["平均価格が安い順","budget"]])%>
-            <% end %>
+            <form id="sortFrom" action="/" accept-charset="UTF-8" method="get">
+                <select name="sort" id="sort">
+                    <option>選んでください</option>
+                    <option id="beer">ビールが安い順</option>
+                    <option id="budget" value="budget">平均価格が安い順</option>
+                </select>
+            </form>
         </div>
     </div>
 </div>
