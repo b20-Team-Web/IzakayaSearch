@@ -52,8 +52,24 @@ ul {
 
 .topSort_area {
     display: inline-flex;
+    flex-direction: column;
     justify-content: space-around;
     width: 100%;
+}
+
+.topSort_areaContent {
+    padding: 0 16px;
+}
+
+.topSort_areaTitle {
+    margin-top: 16px;
+    border-left: 7px solid #FFEE58;
+    line-height: 35px;
+    font-size: 18px;
+}
+
+.topSort_areaTitle p {
+    margin-left: 12px;
 }
 
 .topSort_area span {
@@ -63,7 +79,11 @@ ul {
     text-align: center;
     margin: 15px 0 0 0;
     background-color:  #FFEE58;
-    
+}
+
+.topSort_pulldown {
+    display: flex;
+    justify-content: center;
 }
 
 #sortFrom {
@@ -105,7 +125,7 @@ ul {
     padding: 12px 0 12px 12px;
     border-radius: 22px;
     margin-bottom: 16px;
-    box-shadow: 0px 2px 3px grey;
+    box-shadow: 0px 2px 5px grey;
 }
 .topAreaListCardImage {
     display: flex;
@@ -176,11 +196,11 @@ ul {
     align-items: center;
 }
 
-.topAreaListCardInfo__detailPrice p {
+.ttopAreaListCardInfo__cheaptext {
     font-size: 17px;
 }
 
-.topAreaListCardInfo__detailPrice i {
+.topAreaListCardInfo__pricetext {
     font-size: 22px;
     color: red;
 }
@@ -308,4 +328,10 @@ th{
     .topAreaListCardInfo__tag {
         font-size: 9pxs;
     }
+}
+
+.borderGrunabi_credit {
+    width: 90px;
+    height: 35px;
+    border: 0;
 }

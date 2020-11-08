@@ -9,9 +9,16 @@
     </div>
 </div>
 <div class="topSort_area">
-    <%= form_tag({controller: "home", action: "top"},{method: :get, id: "sortFrom"}) do %>
-        <%= select_tag "sort", options_for_select([["絞り込み条件を変更",""],["ビールが安い順",nil],["平均価格が安い順","budget"]])%>
-    <% end %>
+    <div class="topSort_areaContent">
+        <h2 class="topSort_areaTitle">
+            <p>絞り込み条件を設定</p>
+        </h2>
+        <div class="topSort_pulldown">
+            <%= form_tag({controller: "home", action: "top"},{method: :get, id: "sortFrom"}) do %>
+                <%= select_tag "sort", options_for_select([["ビールが安い順",""],["平均価格が安い順","budget"]])%>
+            <% end %>
+        </div>
+    </div>
 </div>
 <section class="topAreaList">
     <h2 class="sectionHeader">
@@ -23,7 +30,7 @@
             <li class="topAreaListCard">
                 <%= link_to("/show/#{store["store_code"]}") do %>
                     <div class="topAreaListCardInfo__rank">
-                        <% i += 1 %> 
+                        <% i += 1 %>
                         <span>
                             <%= if i < 4 then image_tag("icons/#{i}.svg") else i end  %>
                         </span>
@@ -36,9 +43,9 @@
                         <div class="topAreaListCardInfo__detailBox">
                             <div class="topAreaListCardInfo__detailPrice">
                                 <% if @h2_title == "ビールが安い順" %>
-                                    <p>最安値</p><i><%= store["drink_price"].to_s(:delimited) %>円~</i>
+                                    <p class="topAreaListCardInfo__cheaptext">最安値</p><p class="topAreaListCardInfo__pricetext"><%= store["drink_price"].to_s(:delimited) %>円~</p>
                                 <% else %>
-                                    <p>平均価格</p><i><%= store["budget"].to_s(:delimited) %>円~</i>
+                                    <p class="topAreaListCardInfo__cheaptext">平均価格</p><p class="topAreaListCardInfo__pricetext"><%= store["budget"].to_s(:delimited) %>円~</p>
                                 <% end %>
                             </div>
                             <div class="topAreaListCardInfo__detailAccess">

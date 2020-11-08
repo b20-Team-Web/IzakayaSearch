@@ -5,10 +5,8 @@ class HomeController < ApplicationController
     #とってる情報はcode name access_station access_station_exit access_walk budget pr drink_id min(drink_price)
     # sql = "select stores.code, name, access_station, access_station_exit, access_walk, budget, pr, drink_id, min(drink_price) from stores INNER JOIN drink_prices ON drink_prices.store_code = stores.code GROUP BY stores.code ORDER BY min(drink_price) asc;"
     # @store_data = ActiveRecord::Base.connection.select_all(sql).to_hash
-    
     # sql = "select store_code, name from drink_prices INNER JOIN drinks ON drink_prices.drink_id = drinks.id where drink_prices.id in(select min(drink_prices.id) from drink_prices INNER JOIN drinks ON drink_prices.drink_id = drinks.id group by store_code, drinks.name);"
     # @drink_name = ActiveRecord::Base.connection.select_all(sql).to_hash
-
 
     if !params[:sort].present?
       sql = "select drink_prices.store_code, stores.name as store_name, image1, access_line, access_station, access_station_exit, access_walk, pr, budget, drink_price, drinks.name as drink_name from drink_prices INNER JOIN drinks ON drink_prices.drink_id = drinks.id INNER JOIN stores ON drink_prices.store_code = stores.code where drink_prices.id in(select min(drink_prices.id) from drink_prices INNER JOIN drinks ON drink_prices.drink_id = drinks.id group by store_code, drinks.name) ORDER BY drink_price ASC;"
