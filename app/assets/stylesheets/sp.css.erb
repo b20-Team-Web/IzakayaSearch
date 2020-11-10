@@ -52,8 +52,24 @@ ul {
 
 .topSort_area {
     display: inline-flex;
+    flex-direction: column;
     justify-content: space-around;
     width: 100%;
+}
+
+.topSort_areaContent {
+    padding: 0 16px;
+}
+
+.topSort_areaTitle {
+    margin-top: 16px;
+    border-left: 7px solid #FFEE58;
+    line-height: 35px;
+    font-size: 18px;
+}
+
+.topSort_areaTitle p {
+    margin-left: 12px;
 }
 
 .topSort_area span {
@@ -63,12 +79,28 @@ ul {
     text-align: center;
     margin: 15px 0 0 0;
     background-color:  #FFEE58;
-    
+}
+
+.topSort_pulldown {
+    display: flex;
+    justify-content: center;
+}
+
+#sortFrom {
+    display: flex;
+    height: 30px;
+    margin: 16px 0 0 0;
+}
+
+.jssort {
+    width: 300px;
 }
 
 .topSort_area span > form {
     padding: 8px 0;
+    justify-content: center;
 }
+
 .topArea__priceEmphasis {
     font-size: 66px;
 }
@@ -90,10 +122,10 @@ ul {
     padding: 0 16px;
 }
 .topAreaListCard {
-    padding: 12px 0 12px 12px;
+    padding: 12px 6px 12px 12px;
     border-radius: 22px;
     margin-bottom: 16px;
-    box-shadow: 0px 2px 3px grey;
+    box-shadow: 0px 2px 5px grey;
 }
 .topAreaListCardImage {
     display: flex;
@@ -133,6 +165,7 @@ ul {
     color: blue;
     font-weight: 600;
     text-decoration: underline;
+    line-height: 1.2em;
 }
 .topAreaListCardInfo__detail {
     display: flex;
@@ -142,34 +175,45 @@ ul {
     font-weight: 700;
     font-size: 13px;
     line-height: 2em;
-    margin: 0 10px;
+}
+
+.topAreaListCardInfo__detailAccessWrap {
+    display: flex;
 }
 
 .topAreaListCardInfo__detailAccessIcon {
-    margin-right: 6px;
+    margin-right: 4px;
+    font-size: 16px;
+    vertical-align: sub;
+    align-self: flex-start;
+}
+
+.topAreaListCardInfo__detailAccessText {
+    align-self: flex-start;
+    line-height: 1.4em;
 }
 
 .topAreaListCardInfo__detailBox {
     display: flex;
     flex-direction: column;
     width: 47%;
-    margin: 0 0 0 5px;
+    margin-left: 8px;
 }
 
 .topAreaListCardInfo__detailPrice {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     font-weight: 700;
     margin: 10px 5px;
     align-items: center;
 }
 
-.topAreaListCardInfo__detailPrice p {
-    font-size: 24px;
+.ttopAreaListCardInfo__cheaptext {
+    font-size: 17px;
 }
 
-.topAreaListCardInfo__detailPrice i {
-    font-size: 28px;
+.topAreaListCardInfo__pricetext {
+    font-size: 20px;
     color: red;
 }
 
@@ -244,6 +288,11 @@ ul {
 .storeDetailInfo_linkItem > img {
     margin-right: 12px;
 }
+
+.storeDetailInfo_credit {
+    font-size: 8px;
+}
+
 .storeDetailTable {
     border-collapse:collapse;
     margin: 0 auto;
@@ -280,15 +329,21 @@ th{
         width: 155px;
     }
 
-    .topAreaListCardInfo__detailPrice p {
-        font-size: 20px;
-    }
-
     .topAreaListCardInfo__detailAccess {
         font-size: 12px;
     }
 
     .topAreaListCardInfo__tag {
-        font-size: 9pxs;
+        font-size: 9px;
     }
+
+    .storeDetailTable__th {
+        padding: 16px 30px;
+    }
+}
+
+.borderGrunabi_credit {
+    width: 90px;
+    height: 35px;
+    border: 0;
 }
