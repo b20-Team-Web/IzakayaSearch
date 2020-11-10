@@ -8,7 +8,7 @@ class HomeController < ApplicationController
     # sql = "select store_code, name from drink_prices INNER JOIN drinks ON drink_prices.drink_id = drinks.id where drink_prices.id in(select min(drink_prices.id) from drink_prices INNER JOIN drinks ON drink_prices.drink_id = drinks.id group by store_code, drinks.name);"
     # @drink_name = ActiveRecord::Base.connection.select_all(sql).to_hash
 
-    if !params[:sort].present?
+    if !params[:jssort].present?
       sql = "select drink_prices.store_code, stores.name as store_name, image1, access_line, access_station, access_station_exit, access_walk, pr, budget, drink_price, drinks.name as drink_name from drink_prices INNER JOIN drinks ON drink_prices.drink_id = drinks.id INNER JOIN stores ON drink_prices.store_code = stores.code where drink_prices.id in(select min(drink_prices.id) from drink_prices INNER JOIN drinks ON drink_prices.drink_id = drinks.id group by store_code, drinks.name) ORDER BY drink_price ASC;"
       @store = ActiveRecord::Base.connection.select_all(sql).to_hash
       @stores_data = @store.group_by{|s|s["store_code"]}.map{|k,ary|a0=ary.first.dup;a0["drink_name"]=[]; a0["drink_price"]=ary.map{|a| a["drink_price"]}.min; ary.inject(a0){|a,s| a["drink_name"] << s["drink_name"];a}}

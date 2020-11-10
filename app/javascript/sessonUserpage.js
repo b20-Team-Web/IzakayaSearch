@@ -1,10 +1,13 @@
 $(function(){
-    var sesson = window.sessionStorage.getItem(['form']);
-    if(sesson){
-        if(sesson == "beer"){
-            document.getElementById("beer").selected = true;
-        }else{
-            document.getElementById("budget").selected = true;
+    var session = window.sessionStorage.getItem(['form']);
+    var selectBox = $('[name=js-sort]');
+    if (session !== null) {
+        if (session === "beer") {
+            $('select[name="jssort"] > option[value="beer"]').prop('selected', true);
+        } else if (session === "budget") {
+            $('select[name="jssort"] > option[value="budget"]').prop('selected', true);
         }
+    } else {
+        $("#js-beer").selected = true;
     }
 });

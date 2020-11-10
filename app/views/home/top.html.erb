@@ -13,14 +13,12 @@
 <section class="p-topArea">
     <div class="p-topAreaSearch" id="js-search-nav">
         <p class="p-topAreaSearchTitle"><span class="material-icons">plagiarism</span>並び順</p>
-        <ul class="p-topAreaSearchList">
-            <li class="p-topAreaSearchList__item">
-                <%= button_to "ビールが安い順", {controller: "home", action: "top"}, {method: :get} %>
-            </li>
-            <li class="p-topAreaSearchList__item">
-                <%= button_to "平均予算が安い順", {controller: "home", action: "top"}, {method: :get, params: {sort: "budget"}} %>
-            </li>
-        </ul>
+        <form id="sortFrom" action="/" accept-charset="UTF-8" method="get">
+            <select name="jssort" class="jssort">
+                <option id="js-beer" value="beer">ビールが安い順</option>
+                <option id="js-budget" value="budget">平均予算が安い順</option>
+            </select>
+        </form>
     </div>
     <div class="p-topAreaList">
         <h2 class="p-sectionHeaderTop">八王子周辺で<%= @h2_title %></h2>
@@ -59,10 +57,10 @@
                                     <p class="p-topAreaListCardInfoDetail__accessText">
                                     <% if @h2_title == "ビールが安い順" %>
                                         <i class="material-icons">attach_money</i>
-                                        平均予算<%= store["budget"].to_s(:delimited) %>円~
+                                        平均予算<%= store["budget"].to_s(:delimited) %>円
                                     <% else %>
                                         <i class="material-icons">sports_bar</i>
-                                        ビール最安<%= store["drink_price"].to_s(:delimited) %>円~
+                                        ビール最安<%= store["drink_price"].to_s(:delimited) %>円
                                     <% end %>
                                     </p>
                                 </div>
