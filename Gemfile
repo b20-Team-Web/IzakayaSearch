@@ -62,3 +62,6 @@ gem 'whenever', require: false
 gem 'nokogiri'
 
 gem 'rack-user_agent'
+
+# SEO対策 - メタ情報設定
+gem 'meta-tags'
