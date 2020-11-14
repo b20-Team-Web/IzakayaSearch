@@ -72,15 +72,6 @@ ul {
     margin-left: 12px;
 }
 
-.topSort_area span {
-    border: solid 1px gray;
-    border-radius: 26px;
-    width: 40%;
-    text-align: center;
-    margin: 15px 0 0 0;
-    background-color:  #FFEE58;
-}
-
 .topSort_pulldown {
     display: flex;
     justify-content: center;
@@ -346,4 +337,69 @@ th{
     width: 90px;
     height: 35px;
     border: 0;
+}
+
+.topSort_wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.topSort_accordion {
+    width: 80%;
+}
+
+.topSort_accordionItem {
+    background: white;
+    color: black;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 1px;
+    position: relative;
+    border: 1px solid black;
+}
+
+.topSort_accordionItemLink {
+    color: black;
+    display: flex;
+    align-items: center;
+    padding: 0.4rem;
+    position: relative;
+}
+
+.topSort_accordionItemLink:after {
+    content: "keyboard_arrow_down";
+    font-family: "Material Icons";
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    height: 100%;
+}
+
+.topSort_accordionItemLink.on:after {
+    font-family: "Material Icons";
+    content: "keyboard_arrow_up";
+}
+
+.topSort_accordionUl {
+    background: #fff;
+    display: none;
+}
+
+.topSort_accordionUlItem {
+    color: #222;
+    padding: 1rem;
+}
+
+.topSort_submitWrap {
+    border: 1px solid gray;
+    background-color: #FFE600;
+    border-radius: 10px;
+}
+
+.topSort_checkboxSubmit {
+    width: 100%;
+    height: 35px;
 }
