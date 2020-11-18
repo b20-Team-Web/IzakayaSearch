@@ -8,50 +8,35 @@
         <p class="topArea__priceAccess"><%= @stores_data[0]["access_line"] + @stores_data[0]["access_station"] %>徒歩<%= @stores_data[0]["access_walk"] %>分</p>
     </div>
 </div>
-<div class="topSort_area">
-    <div class="topSort_areaContent">
-        <h2 class="topSort_areaTitle">
-            <p>絞り込み条件を設定</p>
-        </h2>
-        <div class="topSort_pulldown">
-            <form id="sortFrom" action="/" accept-charset="UTF-8" method="get">
-                <select name="jssort" class="jssort">
-                    <option id="js-beer" value="beer">ビールが安い順</option>
-                    <option id="js-budget" value="budget">平均予算が安い順</option>
-                </select>
-            </form>
-        </div>
-    </div>
-    <div class="topSort_wrap">
-        <ul class="topSort_accordion">
-            <li class="topSort_accordionItem">
-                <a class="topSort_accordionItemLink js-topSort_accordionItemLink" href="">
-                    <span class="material-icons">format_list_bulleted</span><span>絞り込み条件を選択</span>
-                </a>
-                <ul class="topSort_accordionUl">
-                    <form action="/" class="topSort_accordionForm" accept-charset="UTF-8">
-                        <li class="topSort_accordionUlItem">
-                            <input type="checkbox" id="topSort_checkbox" name="topSort_checkbox">
-                            <label for="topSort_checkbox">平均価格順で並べる</label>
-                        </li>
-                        <li class="topSort_accordionUlItem">
-                            <input type="checkbox" id="topSort_checkbox" name="topSort_checkbox">
-                            <label for="topSort_checkbox">平均価格順で並べる</label>
-                        </li>
-                        <li class="topSort_accordionUlItem">
-                            <input type="checkbox" id="topSort_checkbox" name="topSort_checkbox">
-                            <label for="topSort_checkbox">平均価格順で並べる</label>
-                        </li>
-                        <li class="topSort_accordionUlItem">
-                            <span class="topSort_submitWrap">
-                                <input type="submit" name="topSort_checkbox" class="topSort_checkboxSubmit" value="絞り込み">
-                            </span>
-                        </li>
-                    </form>
-                </ul>
-            </li>
-        </ul>
-    </div>
+<div class="topSort">
+    <ul class="topSort_accordion">
+        <li class="topSort_accordionItem">
+            <div class="topSort_accordionItemLink js-topSort_accordionItemLink">
+                <span class="material-icons">format_list_bulleted</span><span>絞り込み条件を選択</span>
+            </div>
+            <ul class="topSort_accordionUl">
+                <form action="/" class="topSort_accordionForm" accept-charset="UTF-8">
+                    <li class="topSort_accordionUlItem">
+                        <input type="checkbox" id="topSort_checkbox" name="beer">
+                        <label for="topSort_checkbox">ビール価格の安い順で並べる</label>
+                    </li>
+                    <li class="topSort_accordionUlItem">
+                        <input type="checkbox" id="topSort_checkbox" name="budget">
+                        <label for="topSort_checkbox">平均価格の安い順で並べる</label>
+                    </li>
+                    <li class="topSort_accordionUlItem">
+                        <div class="topSort_submitWrap">
+                            <button class="topSort_checkboxSubmit">絞り込み</button>
+                        </div>
+                    </li>
+                </form>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div>
+    <%= @sql_test %>
+    <%= @title %>
 </div>
 <section class="topAreaList">
     <h2 class="sectionHeader">
